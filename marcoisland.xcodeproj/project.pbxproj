@@ -7,14 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D219AD92126D8FF0078B9F3 /* MerchandiseLIst.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D219AD82126D8FF0078B9F3 /* MerchandiseLIst.xib */; };
+		1D219ADB2126DD5C0078B9F3 /* product_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D219ADA2126DD5C0078B9F3 /* product_img.png */; };
+		1D36BAC621108A370024FB89 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36BAC421108A370024FB89 /* Splash.swift */; };
+		1D36BAC721108A370024FB89 /* Splash.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D36BAC521108A370024FB89 /* Splash.xib */; };
+		1D36BAC921108F100024FB89 /* m_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D36BAC821108F0F0024FB89 /* m_logo.png */; };
+		1D36BACC211092410024FB89 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D36BACB211092410024FB89 /* background.png */; };
+		1D36BACE211092610024FB89 /* background_568.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D36BACD211092610024FB89 /* background_568.png */; };
+		1D36BAD02110A0EA0024FB89 /* rider_rating.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D36BACF2110A0EA0024FB89 /* rider_rating.png */; };
+		1D36BAD22110A1900024FB89 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D36BAD12110A18F0024FB89 /* close.png */; };
 		1D6C6E34210EEC4600652369 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C6E33210EEC4600652369 /* AppDelegate.swift */; };
 		1D6C6E36210EEC4600652369 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C6E35210EEC4600652369 /* ViewController.swift */; };
 		1D6C6E39210EEC4600652369 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E37210EEC4600652369 /* Main.storyboard */; };
 		1D6C6E3B210EEC4800652369 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E3A210EEC4800652369 /* Assets.xcassets */; };
 		1D6C6E3E210EEC4800652369 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E3C210EEC4800652369 /* LaunchScreen.storyboard */; };
+		1D9D2F02211323A600867DB1 /* DashboardItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F01211323A600867DB1 /* DashboardItem.xib */; };
+		1D9D2F04211325F200867DB1 /* beach_opening_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F03211325F200867DB1 /* beach_opening_bg.png */; };
+		1D9D2F0621132DAF00867DB1 /* LoginPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D219AD82126D8FF0078B9F3 /* MerchandiseLIst.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MerchandiseLIst.xib; sourceTree = "<group>"; };
+		1D219ADA2126DD5C0078B9F3 /* product_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = product_img.png; sourceTree = "<group>"; };
+		1D36BAC421108A370024FB89 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
+		1D36BAC521108A370024FB89 /* Splash.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Splash.xib; sourceTree = "<group>"; };
+		1D36BAC821108F0F0024FB89 /* m_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = m_logo.png; sourceTree = "<group>"; };
+		1D36BACB211092410024FB89 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		1D36BACD211092610024FB89 /* background_568.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_568.png; sourceTree = "<group>"; };
+		1D36BACF2110A0EA0024FB89 /* rider_rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rider_rating.png; sourceTree = "<group>"; };
+		1D36BAD12110A18F0024FB89 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		1D6C6E30210EEC4600652369 /* marcoisland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marcoisland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6C6E33210EEC4600652369 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D6C6E35210EEC4600652369 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +43,9 @@
 		1D6C6E3A210EEC4800652369 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D6C6E3D210EEC4800652369 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D6C6E3F210EEC4800652369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D9D2F01211323A600867DB1 /* DashboardItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardItem.xib; sourceTree = "<group>"; };
+		1D9D2F03211325F200867DB1 /* beach_opening_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_opening_bg.png; sourceTree = "<group>"; };
+		1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPopup.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +59,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D36BACA21108F1A0024FB89 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				1D219ADA2126DD5C0078B9F3 /* product_img.png */,
+				1D9D2F03211325F200867DB1 /* beach_opening_bg.png */,
+				1D36BAD12110A18F0024FB89 /* close.png */,
+				1D36BACF2110A0EA0024FB89 /* rider_rating.png */,
+				1D36BACB211092410024FB89 /* background.png */,
+				1D36BACD211092610024FB89 /* background_568.png */,
+				1D36BAC821108F0F0024FB89 /* m_logo.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		1D6C6E27210EEC4600652369 = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +92,18 @@
 		1D6C6E32210EEC4600652369 /* marcoisland */ = {
 			isa = PBXGroup;
 			children = (
+				1D36BACA21108F1A0024FB89 /* images */,
 				1D6C6E33210EEC4600652369 /* AppDelegate.swift */,
 				1D6C6E35210EEC4600652369 /* ViewController.swift */,
 				1D6C6E37210EEC4600652369 /* Main.storyboard */,
 				1D6C6E3A210EEC4800652369 /* Assets.xcassets */,
 				1D6C6E3C210EEC4800652369 /* LaunchScreen.storyboard */,
 				1D6C6E3F210EEC4800652369 /* Info.plist */,
+				1D36BAC421108A370024FB89 /* Splash.swift */,
+				1D36BAC521108A370024FB89 /* Splash.xib */,
+				1D9D2F01211323A600867DB1 /* DashboardItem.xib */,
+				1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */,
+				1D219AD82126D8FF0078B9F3 /* MerchandiseLIst.xib */,
 			);
 			path = marcoisland;
 			sourceTree = "<group>";
@@ -122,9 +166,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D36BAD22110A1900024FB89 /* close.png in Resources */,
 				1D6C6E3E210EEC4800652369 /* LaunchScreen.storyboard in Resources */,
+				1D36BACC211092410024FB89 /* background.png in Resources */,
 				1D6C6E3B210EEC4800652369 /* Assets.xcassets in Resources */,
+				1D9D2F0621132DAF00867DB1 /* LoginPopup.xib in Resources */,
+				1D36BAC921108F100024FB89 /* m_logo.png in Resources */,
+				1D219AD92126D8FF0078B9F3 /* MerchandiseLIst.xib in Resources */,
+				1D9D2F04211325F200867DB1 /* beach_opening_bg.png in Resources */,
+				1D36BAC721108A370024FB89 /* Splash.xib in Resources */,
+				1D36BAD02110A0EA0024FB89 /* rider_rating.png in Resources */,
 				1D6C6E39210EEC4600652369 /* Main.storyboard in Resources */,
+				1D36BACE211092610024FB89 /* background_568.png in Resources */,
+				1D9D2F02211323A600867DB1 /* DashboardItem.xib in Resources */,
+				1D219ADB2126DD5C0078B9F3 /* product_img.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D6C6E36210EEC4600652369 /* ViewController.swift in Sources */,
+				1D36BAC621108A370024FB89 /* Splash.swift in Sources */,
 				1D6C6E34210EEC4600652369 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +336,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76PG75763U;
 				INFOPLIST_FILE = marcoisland/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -288,8 +347,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ild.marcoisland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -297,7 +357,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76PG75763U;
 				INFOPLIST_FILE = marcoisland/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -305,8 +368,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ild.marcoisland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

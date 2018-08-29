@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="oyy-ng-GA8">
+            <rect key="frame" x="0.0" y="0.0" width="366" height="181"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hN-qt-4Ow">
+                    <rect key="frame" x="10" y="10" width="346" height="161"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach_opening_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="4X0-XB-JCV">
+                            <rect key="frame" x="0.0" y="0.0" width="346" height="161"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beach opening / Time Tide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deI-UD-N5W">
+                            <rect key="frame" x="0.0" y="120.5" width="346" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.36401531040268459" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="5vt-YK-2E8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="4X0-XB-JCV" firstAttribute="top" secondItem="7hN-qt-4Ow" secondAttribute="top" id="0Cg-94-9TF"/>
+                        <constraint firstAttribute="trailing" secondItem="4X0-XB-JCV" secondAttribute="trailing" id="2HC-Uy-b88"/>
+                        <constraint firstAttribute="trailing" secondItem="deI-UD-N5W" secondAttribute="trailing" id="HFs-qU-f63"/>
+                        <constraint firstItem="4X0-XB-JCV" firstAttribute="leading" secondItem="7hN-qt-4Ow" secondAttribute="leading" id="hMJ-37-VC7"/>
+                        <constraint firstItem="deI-UD-N5W" firstAttribute="leading" secondItem="7hN-qt-4Ow" secondAttribute="leading" id="o7f-4m-GNG"/>
+                        <constraint firstAttribute="bottom" secondItem="4X0-XB-JCV" secondAttribute="bottom" id="vca-9I-3FC"/>
+                        <constraint firstAttribute="bottom" secondItem="deI-UD-N5W" secondAttribute="bottom" id="zJK-An-oxO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="549-KU-bb1" firstAttribute="trailing" secondItem="7hN-qt-4Ow" secondAttribute="trailing" constant="10" id="Ndb-Yx-G1E"/>
+                <constraint firstItem="7hN-qt-4Ow" firstAttribute="leading" secondItem="549-KU-bb1" secondAttribute="leading" constant="10" id="PLU-Dw-uSz"/>
+                <constraint firstItem="7hN-qt-4Ow" firstAttribute="top" secondItem="549-KU-bb1" secondAttribute="top" constant="10" id="bvd-ML-4pN"/>
+                <constraint firstItem="549-KU-bb1" firstAttribute="bottom" secondItem="7hN-qt-4Ow" secondAttribute="bottom" constant="10" id="okx-3M-kFP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="549-KU-bb1"/>
+            <point key="canvasLocation" x="-23" y="-227.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="beach_opening_bg.png" width="343" height="210"/>
+    </resources>
+</document>
