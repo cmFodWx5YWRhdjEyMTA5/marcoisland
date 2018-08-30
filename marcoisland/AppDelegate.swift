@@ -12,10 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var initialViewController :UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        //        let vc = Splash()
+        //        let navigationController = UINavigationController(rootViewController: vc)
+        //        self.window?.rootViewController = navigationController
+        //        self.window?.makeKeyAndVisible()
+        //        navigationController.setNavigationBarHidden(true, animated: false)
+        
+        initialViewController  = Splash(nibName:"Splash",bundle:nil)
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
         return true
     }
 

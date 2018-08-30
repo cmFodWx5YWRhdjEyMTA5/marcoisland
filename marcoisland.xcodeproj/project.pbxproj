@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D18A6972137D294003D705B /* ActivationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18A6952137D294003D705B /* ActivationScreen.swift */; };
+		1D18A6982137D294003D705B /* ActivationScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D18A6962137D294003D705B /* ActivationScreen.xib */; };
+		1D18A69B2138137B003D705B /* MyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18A69A2138137B003D705B /* MyUtils.swift */; };
 		1D219AD92126D8FF0078B9F3 /* MerchandiseLIst.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D219AD82126D8FF0078B9F3 /* MerchandiseLIst.xib */; };
 		1D219ADB2126DD5C0078B9F3 /* product_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D219ADA2126DD5C0078B9F3 /* product_img.png */; };
 		1D36BAC621108A370024FB89 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36BAC421108A370024FB89 /* Splash.swift */; };
@@ -17,16 +20,20 @@
 		1D36BAD02110A0EA0024FB89 /* rider_rating.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D36BACF2110A0EA0024FB89 /* rider_rating.png */; };
 		1D36BAD22110A1900024FB89 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D36BAD12110A18F0024FB89 /* close.png */; };
 		1D6C6E34210EEC4600652369 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C6E33210EEC4600652369 /* AppDelegate.swift */; };
-		1D6C6E36210EEC4600652369 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C6E35210EEC4600652369 /* ViewController.swift */; };
+		1D6C6E36210EEC4600652369 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C6E35210EEC4600652369 /* TabbarController.swift */; };
 		1D6C6E39210EEC4600652369 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E37210EEC4600652369 /* Main.storyboard */; };
 		1D6C6E3B210EEC4800652369 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E3A210EEC4800652369 /* Assets.xcassets */; };
 		1D6C6E3E210EEC4800652369 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E3C210EEC4800652369 /* LaunchScreen.storyboard */; };
 		1D9D2F02211323A600867DB1 /* DashboardItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F01211323A600867DB1 /* DashboardItem.xib */; };
 		1D9D2F04211325F200867DB1 /* beach_opening_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F03211325F200867DB1 /* beach_opening_bg.png */; };
 		1D9D2F0621132DAF00867DB1 /* LoginPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */; };
+		D213691B95C3F7C4A7B13C92 /* Pods_marcoisland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB96681F7C0320529C19BDD5 /* Pods_marcoisland.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D18A6952137D294003D705B /* ActivationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationScreen.swift; sourceTree = "<group>"; };
+		1D18A6962137D294003D705B /* ActivationScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivationScreen.xib; sourceTree = "<group>"; };
+		1D18A69A2138137B003D705B /* MyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUtils.swift; sourceTree = "<group>"; };
 		1D219AD82126D8FF0078B9F3 /* MerchandiseLIst.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MerchandiseLIst.xib; sourceTree = "<group>"; };
 		1D219ADA2126DD5C0078B9F3 /* product_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = product_img.png; sourceTree = "<group>"; };
 		1D36BAC421108A370024FB89 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
@@ -38,7 +45,7 @@
 		1D36BAD12110A18F0024FB89 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		1D6C6E30210EEC4600652369 /* marcoisland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marcoisland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6C6E33210EEC4600652369 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1D6C6E35210EEC4600652369 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1D6C6E35210EEC4600652369 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		1D6C6E38210EEC4600652369 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D6C6E3A210EEC4800652369 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D6C6E3D210EEC4800652369 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,6 +53,9 @@
 		1D9D2F01211323A600867DB1 /* DashboardItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardItem.xib; sourceTree = "<group>"; };
 		1D9D2F03211325F200867DB1 /* beach_opening_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_opening_bg.png; sourceTree = "<group>"; };
 		1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPopup.xib; sourceTree = "<group>"; };
+		BECB3F46D9A6158CA663E04D /* Pods-marcoisland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marcoisland.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marcoisland/Pods-marcoisland.debug.xcconfig"; sourceTree = "<group>"; };
+		DB96681F7C0320529C19BDD5 /* Pods_marcoisland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_marcoisland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4C8E39E6A602927B4E696A3 /* Pods-marcoisland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marcoisland.release.xcconfig"; path = "Pods/Target Support Files/Pods-marcoisland/Pods-marcoisland.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +63,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D213691B95C3F7C4A7B13C92 /* Pods_marcoisland.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D18A69921381337003D705B /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				1D18A69A2138137B003D705B /* MyUtils.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		1D36BACA21108F1A0024FB89 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +97,8 @@
 			children = (
 				1D6C6E32210EEC4600652369 /* marcoisland */,
 				1D6C6E31210EEC4600652369 /* Products */,
+				AF5F72791A81289D23DCC961 /* Pods */,
+				2E65320977FF1CB58B549D91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,9 +113,10 @@
 		1D6C6E32210EEC4600652369 /* marcoisland */ = {
 			isa = PBXGroup;
 			children = (
+				1D18A69921381337003D705B /* utils */,
 				1D36BACA21108F1A0024FB89 /* images */,
 				1D6C6E33210EEC4600652369 /* AppDelegate.swift */,
-				1D6C6E35210EEC4600652369 /* ViewController.swift */,
+				1D6C6E35210EEC4600652369 /* TabbarController.swift */,
 				1D6C6E37210EEC4600652369 /* Main.storyboard */,
 				1D6C6E3A210EEC4800652369 /* Assets.xcassets */,
 				1D6C6E3C210EEC4800652369 /* LaunchScreen.storyboard */,
@@ -104,8 +126,27 @@
 				1D9D2F01211323A600867DB1 /* DashboardItem.xib */,
 				1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */,
 				1D219AD82126D8FF0078B9F3 /* MerchandiseLIst.xib */,
+				1D18A6952137D294003D705B /* ActivationScreen.swift */,
+				1D18A6962137D294003D705B /* ActivationScreen.xib */,
 			);
 			path = marcoisland;
+			sourceTree = "<group>";
+		};
+		2E65320977FF1CB58B549D91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB96681F7C0320529C19BDD5 /* Pods_marcoisland.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF5F72791A81289D23DCC961 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BECB3F46D9A6158CA663E04D /* Pods-marcoisland.debug.xcconfig */,
+				E4C8E39E6A602927B4E696A3 /* Pods-marcoisland.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6C6E42210EEC4800652369 /* Build configuration list for PBXNativeTarget "marcoisland" */;
 			buildPhases = (
+				91DACAF2E169EA43DCB78012 /* [CP] Check Pods Manifest.lock */,
 				1D6C6E2C210EEC4600652369 /* Sources */,
 				1D6C6E2D210EEC4600652369 /* Frameworks */,
 				1D6C6E2E210EEC4600652369 /* Resources */,
+				763C5C9655D29B9B156F85C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,6 +215,7 @@
 				1D6C6E3B210EEC4800652369 /* Assets.xcassets in Resources */,
 				1D9D2F0621132DAF00867DB1 /* LoginPopup.xib in Resources */,
 				1D36BAC921108F100024FB89 /* m_logo.png in Resources */,
+				1D18A6982137D294003D705B /* ActivationScreen.xib in Resources */,
 				1D219AD92126D8FF0078B9F3 /* MerchandiseLIst.xib in Resources */,
 				1D9D2F04211325F200867DB1 /* beach_opening_bg.png in Resources */,
 				1D36BAC721108A370024FB89 /* Splash.xib in Resources */,
@@ -185,14 +229,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		763C5C9655D29B9B156F85C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-marcoisland/Pods-marcoisland-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-marcoisland/Pods-marcoisland-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91DACAF2E169EA43DCB78012 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-marcoisland-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D6C6E2C210EEC4600652369 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D6C6E36210EEC4600652369 /* ViewController.swift in Sources */,
+				1D6C6E36210EEC4600652369 /* TabbarController.swift in Sources */,
+				1D18A69B2138137B003D705B /* MyUtils.swift in Sources */,
 				1D36BAC621108A370024FB89 /* Splash.swift in Sources */,
 				1D6C6E34210EEC4600652369 /* AppDelegate.swift in Sources */,
+				1D18A6972137D294003D705B /* ActivationScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +419,7 @@
 		};
 		1D6C6E43210EEC4800652369 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BECB3F46D9A6158CA663E04D /* Pods-marcoisland.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -355,6 +441,7 @@
 		};
 		1D6C6E44210EEC4800652369 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4C8E39E6A602927B4E696A3 /* Pods-marcoisland.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

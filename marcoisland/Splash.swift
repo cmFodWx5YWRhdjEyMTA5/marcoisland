@@ -10,12 +10,28 @@ import UIKit
 
 class Splash: UIViewController {
 
+    var initialViewController :UIViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        /*DispatchQueue.main.async {
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = mainStoryBoard.instantiateViewController(withIdentifier: "TabbarController") as! TabbarController
+            self.present(newViewController, animated: true, completion: nil)
+        }*/
+        DispatchQueue.main.async {
+            //let activationController:UIViewController? = ActivationScreen()
+            let viewController = ActivationScreen(nibName: "ActivationScreen", bundle: nil)
+            self.present(viewController, animated: true, completion: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
