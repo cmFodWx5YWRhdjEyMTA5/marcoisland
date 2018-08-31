@@ -10,6 +10,9 @@
 		1D18A6972137D294003D705B /* ActivationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18A6952137D294003D705B /* ActivationScreen.swift */; };
 		1D18A6982137D294003D705B /* ActivationScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D18A6962137D294003D705B /* ActivationScreen.xib */; };
 		1D18A69B2138137B003D705B /* MyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18A69A2138137B003D705B /* MyUtils.swift */; };
+		1D1DE03221397032003AAFAC /* CmsMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1DE03121397032003AAFAC /* CmsMaster.swift */; };
+		1D1DE03421397D1C003AAFAC /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1DE03321397D1C003AAFAC /* DataStore.swift */; };
+		1D1DE0362139897B003AAFAC /* RestcallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1DE0352139897B003AAFAC /* RestcallManager.swift */; };
 		1D219AD92126D8FF0078B9F3 /* MerchandiseLIst.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D219AD82126D8FF0078B9F3 /* MerchandiseLIst.xib */; };
 		1D219ADB2126DD5C0078B9F3 /* product_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D219ADA2126DD5C0078B9F3 /* product_img.png */; };
 		1D36BAC621108A370024FB89 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36BAC421108A370024FB89 /* Splash.swift */; };
@@ -19,6 +22,7 @@
 		1D36BACE211092610024FB89 /* background_568.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D36BACD211092610024FB89 /* background_568.png */; };
 		1D36BAD02110A0EA0024FB89 /* rider_rating.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D36BACF2110A0EA0024FB89 /* rider_rating.png */; };
 		1D36BAD22110A1900024FB89 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D36BAD12110A18F0024FB89 /* close.png */; };
+		1D4775A521392D0E00365F06 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4775A421392D0E00365F06 /* BaseViewController.swift */; };
 		1D6C6E34210EEC4600652369 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C6E33210EEC4600652369 /* AppDelegate.swift */; };
 		1D6C6E36210EEC4600652369 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C6E35210EEC4600652369 /* TabbarController.swift */; };
 		1D6C6E39210EEC4600652369 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E37210EEC4600652369 /* Main.storyboard */; };
@@ -34,6 +38,9 @@
 		1D18A6952137D294003D705B /* ActivationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationScreen.swift; sourceTree = "<group>"; };
 		1D18A6962137D294003D705B /* ActivationScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivationScreen.xib; sourceTree = "<group>"; };
 		1D18A69A2138137B003D705B /* MyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUtils.swift; sourceTree = "<group>"; };
+		1D1DE03121397032003AAFAC /* CmsMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CmsMaster.swift; sourceTree = "<group>"; };
+		1D1DE03321397D1C003AAFAC /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		1D1DE0352139897B003AAFAC /* RestcallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestcallManager.swift; sourceTree = "<group>"; };
 		1D219AD82126D8FF0078B9F3 /* MerchandiseLIst.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MerchandiseLIst.xib; sourceTree = "<group>"; };
 		1D219ADA2126DD5C0078B9F3 /* product_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = product_img.png; sourceTree = "<group>"; };
 		1D36BAC421108A370024FB89 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
@@ -43,6 +50,7 @@
 		1D36BACD211092610024FB89 /* background_568.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_568.png; sourceTree = "<group>"; };
 		1D36BACF2110A0EA0024FB89 /* rider_rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rider_rating.png; sourceTree = "<group>"; };
 		1D36BAD12110A18F0024FB89 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		1D4775A421392D0E00365F06 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1D6C6E30210EEC4600652369 /* marcoisland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marcoisland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6C6E33210EEC4600652369 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D6C6E35210EEC4600652369 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -78,6 +86,30 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		1D1DE02E21396DDC003AAFAC /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				1D1DE03321397D1C003AAFAC /* DataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		1D1DE02F21396DE5003AAFAC /* RestcallManager */ = {
+			isa = PBXGroup;
+			children = (
+				1D1DE0352139897B003AAFAC /* RestcallManager.swift */,
+			);
+			path = RestcallManager;
+			sourceTree = "<group>";
+		};
+		1D1DE03021396DF0003AAFAC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1D1DE03121397032003AAFAC /* CmsMaster.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1D36BACA21108F1A0024FB89 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +122,14 @@
 				1D36BAC821108F0F0024FB89 /* m_logo.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		1D4775A321392CC500365F06 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1D4775A421392D0E00365F06 /* BaseViewController.swift */,
+			);
+			path = BaseViewController;
 			sourceTree = "<group>";
 		};
 		1D6C6E27210EEC4600652369 = {
@@ -113,6 +153,10 @@
 		1D6C6E32210EEC4600652369 /* marcoisland */ = {
 			isa = PBXGroup;
 			children = (
+				1D1DE03021396DF0003AAFAC /* Model */,
+				1D1DE02F21396DE5003AAFAC /* RestcallManager */,
+				1D1DE02E21396DDC003AAFAC /* DataStore */,
+				1D4775A321392CC500365F06 /* BaseViewController */,
 				1D18A69921381337003D705B /* utils */,
 				1D36BACA21108F1A0024FB89 /* images */,
 				1D6C6E33210EEC4600652369 /* AppDelegate.swift */,
@@ -274,10 +318,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D6C6E36210EEC4600652369 /* TabbarController.swift in Sources */,
+				1D1DE0362139897B003AAFAC /* RestcallManager.swift in Sources */,
+				1D1DE03421397D1C003AAFAC /* DataStore.swift in Sources */,
 				1D18A69B2138137B003D705B /* MyUtils.swift in Sources */,
 				1D36BAC621108A370024FB89 /* Splash.swift in Sources */,
 				1D6C6E34210EEC4600652369 /* AppDelegate.swift in Sources */,
 				1D18A6972137D294003D705B /* ActivationScreen.swift in Sources */,
+				1D4775A521392D0E00365F06 /* BaseViewController.swift in Sources */,
+				1D1DE03221397032003AAFAC /* CmsMaster.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
