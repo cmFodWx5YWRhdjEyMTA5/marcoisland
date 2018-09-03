@@ -87,4 +87,13 @@ class MyUtils: NSObject {
         
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
+    
+    func showAlertViewDialog(title : String, msg :String, controller:UIViewController, okClicked : @escaping ()->()){
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction) in
+            print("You've pressed Ok");
+        }
+        alertController.addAction(actionOk)
+        controller.present(alertController, animated: true, completion: nil)
+    }
 }

@@ -9,12 +9,10 @@
 import UIKit
 
 class DataStore: NSObject {
-    var cmsDict: NSMutableDictionary
+    var cmsDict: NSMutableDictionary = [:]
     
     static let sharedInstance = DataStore()
-    private override init() {
-        cmsDict = [String : String]() as! NSMutableDictionary
-    }
+    
     
     func addCms(_ driverArray: NSArray) {
         cmsDict.removeAllObjects()

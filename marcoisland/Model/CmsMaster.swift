@@ -8,12 +8,12 @@
 
 import UIKit
 
-class CmsMaster: NSObject {
+class CmsMaster: Decodable {
     var post_id :String
     var post_title :String
     var post_content :String
     
-    override init() {
+    init() {
         post_id = ""
         post_title = ""
         post_content = ""

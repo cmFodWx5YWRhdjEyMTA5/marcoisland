@@ -1,0 +1,6 @@
+framework module Pods_marcoisland {
+  umbrella header "Pods-marcoisland-umbrella.h"
+
+  export *
+  module * { export * }
+}

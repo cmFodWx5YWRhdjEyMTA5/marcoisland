@@ -31,6 +31,11 @@
 		1D9D2F02211323A600867DB1 /* DashboardItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F01211323A600867DB1 /* DashboardItem.xib */; };
 		1D9D2F04211325F200867DB1 /* beach_opening_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F03211325F200867DB1 /* beach_opening_bg.png */; };
 		1D9D2F0621132DAF00867DB1 /* LoginPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */; };
+		1D9F8CB8213D43E600E10DB6 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9F8CB7213D43E600E10DB6 /* AFNetworking.framework */; };
+		1D9F8CBA213D43E900E10DB6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9F8CB9213D43E900E10DB6 /* Alamofire.framework */; };
+		1D9F8CBD213D463400E10DB6 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F8CBC213D463400E10DB6 /* Connectivity.swift */; };
+		1D9F8CBF213D4DD000E10DB6 /* WebServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F8CBE213D4DCF00E10DB6 /* WebServiceResponse.swift */; };
+		1D9F8CC2213D6F0400E10DB6 /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F8CC1213D6F0400E10DB6 /* GlobalVariable.swift */; };
 		D213691B95C3F7C4A7B13C92 /* Pods_marcoisland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB96681F7C0320529C19BDD5 /* Pods_marcoisland.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +66,11 @@
 		1D9D2F01211323A600867DB1 /* DashboardItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardItem.xib; sourceTree = "<group>"; };
 		1D9D2F03211325F200867DB1 /* beach_opening_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_opening_bg.png; sourceTree = "<group>"; };
 		1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPopup.xib; sourceTree = "<group>"; };
+		1D9F8CB7213D43E600E10DB6 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D9F8CB9213D43E900E10DB6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D9F8CBC213D463400E10DB6 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		1D9F8CBE213D4DCF00E10DB6 /* WebServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceResponse.swift; sourceTree = "<group>"; };
+		1D9F8CC1213D6F0400E10DB6 /* GlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
 		BECB3F46D9A6158CA663E04D /* Pods-marcoisland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marcoisland.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marcoisland/Pods-marcoisland.debug.xcconfig"; sourceTree = "<group>"; };
 		DB96681F7C0320529C19BDD5 /* Pods_marcoisland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_marcoisland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C8E39E6A602927B4E696A3 /* Pods-marcoisland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marcoisland.release.xcconfig"; path = "Pods/Target Support Files/Pods-marcoisland/Pods-marcoisland.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9F8CBA213D43E900E10DB6 /* Alamofire.framework in Frameworks */,
+				1D9F8CB8213D43E600E10DB6 /* AFNetworking.framework in Frameworks */,
 				D213691B95C3F7C4A7B13C92 /* Pods_marcoisland.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				1D1DE0352139897B003AAFAC /* RestcallManager.swift */,
+				1D9F8CBE213D4DCF00E10DB6 /* WebServiceResponse.swift */,
 			);
 			path = RestcallManager;
 			sourceTree = "<group>";
@@ -153,6 +166,8 @@
 		1D6C6E32210EEC4600652369 /* marcoisland */ = {
 			isa = PBXGroup;
 			children = (
+				1D9F8CC0213D6EEB00E10DB6 /* GlobalVariable */,
+				1D9F8CBB213D461900E10DB6 /* Connectivity */,
 				1D1DE03021396DF0003AAFAC /* Model */,
 				1D1DE02F21396DE5003AAFAC /* RestcallManager */,
 				1D1DE02E21396DDC003AAFAC /* DataStore */,
@@ -176,9 +191,27 @@
 			path = marcoisland;
 			sourceTree = "<group>";
 		};
+		1D9F8CBB213D461900E10DB6 /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				1D9F8CBC213D463400E10DB6 /* Connectivity.swift */,
+			);
+			path = Connectivity;
+			sourceTree = "<group>";
+		};
+		1D9F8CC0213D6EEB00E10DB6 /* GlobalVariable */ = {
+			isa = PBXGroup;
+			children = (
+				1D9F8CC1213D6F0400E10DB6 /* GlobalVariable.swift */,
+			);
+			path = GlobalVariable;
+			sourceTree = "<group>";
+		};
 		2E65320977FF1CB58B549D91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D9F8CB9213D43E900E10DB6 /* Alamofire.framework */,
+				1D9F8CB7213D43E600E10DB6 /* AFNetworking.framework */,
 				DB96681F7C0320529C19BDD5 /* Pods_marcoisland.framework */,
 			);
 			name = Frameworks;
@@ -282,10 +315,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-marcoisland/Pods-marcoisland-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -319,8 +354,11 @@
 			files = (
 				1D6C6E36210EEC4600652369 /* TabbarController.swift in Sources */,
 				1D1DE0362139897B003AAFAC /* RestcallManager.swift in Sources */,
+				1D9F8CC2213D6F0400E10DB6 /* GlobalVariable.swift in Sources */,
+				1D9F8CBD213D463400E10DB6 /* Connectivity.swift in Sources */,
 				1D1DE03421397D1C003AAFAC /* DataStore.swift in Sources */,
 				1D18A69B2138137B003D705B /* MyUtils.swift in Sources */,
+				1D9F8CBF213D4DD000E10DB6 /* WebServiceResponse.swift in Sources */,
 				1D36BAC621108A370024FB89 /* Splash.swift in Sources */,
 				1D6C6E34210EEC4600652369 /* AppDelegate.swift in Sources */,
 				1D18A6972137D294003D705B /* ActivationScreen.swift in Sources */,

@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
+import Alamofire
 class ActivationScreen: BaseViewController,UITextFieldDelegate {
-
+    
     var window: UIWindow?
     @IBOutlet weak var viewActivation: UIView!
     @IBOutlet weak var txtEmail: UITextField!
@@ -99,14 +99,81 @@ class ActivationScreen: BaseViewController,UITextFieldDelegate {
         }
         else
         {
-    
+            if Connectivity.isConnectedToInternet {
+                
+                var response : Bool = RestcallManager.sharedInstance.getCmsDetails()
+                //print("Jasim")
+                let url : String = "http://mica.h10testing1.info/wp-api/discountPageContent"
+                Alamofire.request(url)
+                    .responseJSON { response in
+                        //print(response)
+                        // check for errors
+                        guard response.result.error == nil else {
+                            // got an error in getting the data, need to handle it
+                            print("error calling GET on /todos/1")
+                            print(response.result.error!)
+                            return
+                        }
+                        
+                        // make sure we got some JSON since that's what we expect
+                        guard let json = response.result.value as? [String: Any] else {
+                            print("didn't get todo object as JSON from API")
+                            if let error = response.result.error {
+                                print("Error: \(error)")
+                            }
+                            return
+                        }
+                        
+                        // get and print the title
+                        guard let todoTitle = json["Data"] as? String else {
+                            print("Could not get todo title from JSON")
+                            return
+                        }
+                        let data = todoTitle.data(using: .utf8)!
+                        let decoder = JSONDecoder()
+                        
+                        do {
+                            let people = try decoder.decode([CmsMaster].self, from: data)
+                            let arr: NSMutableArray = []
+                            //print(people[0].post_title)
+                            for i in 0..<people.count {
+                                let fund: CmsMaster = people[i]
+                                arr.add(fund)
+                            }
+                            DataStore.sharedInstance.addCms(arr)
+                            
+                            let dd = DataStore.sharedInstance.getCms()
+                            let product: CmsMaster = dd[0] as! CmsMaster
+                            print(product.post_id)
+                            
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                        
+                        /*let data = todoTitle.data(using: .utf8)!
+                         do {
+                         if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]
+                         {
+                         print(jsonArray[0]["post_id"] as! String)
+                         //print(jsonArray)
+                         
+                         } else {
+                         print("bad json")
+                         }
+                         } catch let error as NSError {
+                         print(error)
+                         }*/
+                }
+            }
+            else{
+                showAlertView(title: "Alert!", msg: "No Internet connection.", controller: self, okClicked: {
+                })
+            }
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
-
-
