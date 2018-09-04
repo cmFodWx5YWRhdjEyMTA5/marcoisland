@@ -35,6 +35,11 @@ class MyUtils: NSObject {
         return UserDefaults.standard.string(forKey: key)!
     }
     
+    // Check User Default exist or not
+    static func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
+    
     // remove a particular User Default
     static func removeUserDefault(key: String) {
         UserDefaults.standard.removeObject(forKey: key)
@@ -95,5 +100,30 @@ class MyUtils: NSObject {
         }
         alertController.addAction(actionOk)
         controller.present(alertController, animated: true, completion: nil)
+    }
+    
+    static func customLoader(_ mainWindow: UIWindow?) -> UIView? {
+        
+        let loadingView = UIView(frame: CGRect(x: 100, y: 400, width: 80, height: 80))
+        loadingView.center = CGPoint(x: (mainWindow?.frame.size.width ?? 0.0) / 2, y: (mainWindow?.frame.size.height ?? 0.0) / 2)
+        loadingView.backgroundColor = UIColor(white: 0.0, alpha: 1.0)
+        loadingView.layer.cornerRadius = 5
+        
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityView.center = CGPoint(x: loadingView.frame.size.width / 2.0, y: 35)
+        activityView.startAnimating()
+        activityView.tag = 100
+        loadingView.addSubview(activityView)
+        
+        let lblLoading = UILabel(frame: CGRect(x: 0, y: 48, width: 80, height: 30))
+        lblLoading.text = "Loading..."
+        lblLoading.textColor = UIColor.white
+        if let aSize = UIFont(name: lblLoading.font.fontName, size: 15) {
+            lblLoading.font = aSize
+        }
+        lblLoading.textAlignment = .center
+        loadingView.addSubview(lblLoading)
+        
+        return loadingView
     }
 }

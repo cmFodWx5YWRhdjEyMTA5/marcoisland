@@ -19,14 +19,12 @@ class Splash: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        /*DispatchQueue.main.async {
-            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = mainStoryBoard.instantiateViewController(withIdentifier: "TabbarController") as! TabbarController
-            self.present(newViewController, animated: true, completion: nil)
-        }*/
-        DispatchQueue.main.async {
-            //let activationController:UIViewController? = ActivationScreen()
+        if MyUtils.isKeyPresentInUserDefaults(key: "memberID"){
+                let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                let newViewController = mainStoryBoard.instantiateViewController(withIdentifier: "TabbarController") as! TabbarController
+                self.present(newViewController, animated: true, completion: nil)
+        }
+        else{
             let viewController = ActivationScreen(nibName: "ActivationScreen", bundle: nil)
             self.present(viewController, animated: true, completion: nil)
         }

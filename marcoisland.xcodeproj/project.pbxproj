@@ -28,6 +28,15 @@
 		1D6C6E39210EEC4600652369 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E37210EEC4600652369 /* Main.storyboard */; };
 		1D6C6E3B210EEC4800652369 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E3A210EEC4800652369 /* Assets.xcassets */; };
 		1D6C6E3E210EEC4800652369 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E3C210EEC4800652369 /* LaunchScreen.storyboard */; };
+		1D7ADE13213E5A7600061AC8 /* UserMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7ADE12213E5A7600061AC8 /* UserMaster.swift */; };
+		1D7ADE15213E8FB700061AC8 /* logo_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D7ADE14213E8FB400061AC8 /* logo_black.png */; };
+		1D7ADE1A213EB59B00061AC8 /* paradise_grill.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D7ADE16213EB59A00061AC8 /* paradise_grill.png */; };
+		1D7ADE1B213EB59B00061AC8 /* membership.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D7ADE17213EB59B00061AC8 /* membership.png */; };
+		1D7ADE1C213EB59B00061AC8 /* digital_beach_pass.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D7ADE18213EB59B00061AC8 /* digital_beach_pass.png */; };
+		1D7ADE1D213EB59B00061AC8 /* marco_island_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D7ADE19213EB59B00061AC8 /* marco_island_bg.png */; };
+		1D7ADE1F213EBF1900061AC8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7ADE1E213EBF1900061AC8 /* HomeViewController.swift */; };
+		1D7ADE21213EC7F600061AC8 /* DashboardMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7ADE20213EC7F500061AC8 /* DashboardMaster.swift */; };
+		1D7ADE26213ED11000061AC8 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7ADE25213ED10F00061AC8 /* AsyncImageView.m */; };
 		1D9D2F02211323A600867DB1 /* DashboardItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F01211323A600867DB1 /* DashboardItem.xib */; };
 		1D9D2F04211325F200867DB1 /* beach_opening_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F03211325F200867DB1 /* beach_opening_bg.png */; };
 		1D9D2F0621132DAF00867DB1 /* LoginPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */; };
@@ -63,6 +72,17 @@
 		1D6C6E3A210EEC4800652369 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D6C6E3D210EEC4800652369 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D6C6E3F210EEC4800652369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D7ADE12213E5A7600061AC8 /* UserMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMaster.swift; sourceTree = "<group>"; };
+		1D7ADE14213E8FB400061AC8 /* logo_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_black.png; sourceTree = "<group>"; };
+		1D7ADE16213EB59A00061AC8 /* paradise_grill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paradise_grill.png; sourceTree = "<group>"; };
+		1D7ADE17213EB59B00061AC8 /* membership.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = membership.png; sourceTree = "<group>"; };
+		1D7ADE18213EB59B00061AC8 /* digital_beach_pass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = digital_beach_pass.png; sourceTree = "<group>"; };
+		1D7ADE19213EB59B00061AC8 /* marco_island_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marco_island_bg.png; sourceTree = "<group>"; };
+		1D7ADE1E213EBF1900061AC8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1D7ADE20213EC7F500061AC8 /* DashboardMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardMaster.swift; sourceTree = "<group>"; };
+		1D7ADE23213ED10C00061AC8 /* marcoisland-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "marcoisland-Bridging-Header.h"; sourceTree = "<group>"; };
+		1D7ADE24213ED10F00061AC8 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		1D7ADE25213ED10F00061AC8 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		1D9D2F01211323A600867DB1 /* DashboardItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardItem.xib; sourceTree = "<group>"; };
 		1D9D2F03211325F200867DB1 /* beach_opening_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_opening_bg.png; sourceTree = "<group>"; };
 		1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPopup.xib; sourceTree = "<group>"; };
@@ -119,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				1D1DE03121397032003AAFAC /* CmsMaster.swift */,
+				1D7ADE20213EC7F500061AC8 /* DashboardMaster.swift */,
+				1D7ADE12213E5A7600061AC8 /* UserMaster.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,7 +149,12 @@
 			isa = PBXGroup;
 			children = (
 				1D219ADA2126DD5C0078B9F3 /* product_img.png */,
+				1D7ADE14213E8FB400061AC8 /* logo_black.png */,
 				1D9D2F03211325F200867DB1 /* beach_opening_bg.png */,
+				1D7ADE18213EB59B00061AC8 /* digital_beach_pass.png */,
+				1D7ADE19213EB59B00061AC8 /* marco_island_bg.png */,
+				1D7ADE17213EB59B00061AC8 /* membership.png */,
+				1D7ADE16213EB59A00061AC8 /* paradise_grill.png */,
 				1D36BAD12110A18F0024FB89 /* close.png */,
 				1D36BACF2110A0EA0024FB89 /* rider_rating.png */,
 				1D36BACB211092410024FB89 /* background.png */,
@@ -166,6 +193,8 @@
 		1D6C6E32210EEC4600652369 /* marcoisland */ = {
 			isa = PBXGroup;
 			children = (
+				1D7ADE27213ED17300061AC8 /* ViewController */,
+				1D7ADE22213ED0EA00061AC8 /* AsyncImageView */,
 				1D9F8CC0213D6EEB00E10DB6 /* GlobalVariable */,
 				1D9F8CBB213D461900E10DB6 /* Connectivity */,
 				1D1DE03021396DF0003AAFAC /* Model */,
@@ -180,15 +209,33 @@
 				1D6C6E3A210EEC4800652369 /* Assets.xcassets */,
 				1D6C6E3C210EEC4800652369 /* LaunchScreen.storyboard */,
 				1D6C6E3F210EEC4800652369 /* Info.plist */,
-				1D36BAC421108A370024FB89 /* Splash.swift */,
-				1D36BAC521108A370024FB89 /* Splash.xib */,
 				1D9D2F01211323A600867DB1 /* DashboardItem.xib */,
 				1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */,
 				1D219AD82126D8FF0078B9F3 /* MerchandiseLIst.xib */,
-				1D18A6952137D294003D705B /* ActivationScreen.swift */,
-				1D18A6962137D294003D705B /* ActivationScreen.xib */,
 			);
 			path = marcoisland;
+			sourceTree = "<group>";
+		};
+		1D7ADE22213ED0EA00061AC8 /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				1D7ADE24213ED10F00061AC8 /* AsyncImageView.h */,
+				1D7ADE25213ED10F00061AC8 /* AsyncImageView.m */,
+				1D7ADE23213ED10C00061AC8 /* marcoisland-Bridging-Header.h */,
+			);
+			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
+		1D7ADE27213ED17300061AC8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1D36BAC421108A370024FB89 /* Splash.swift */,
+				1D36BAC521108A370024FB89 /* Splash.xib */,
+				1D18A6952137D294003D705B /* ActivationScreen.swift */,
+				1D18A6962137D294003D705B /* ActivationScreen.xib */,
+				1D7ADE1E213EBF1900061AC8 /* HomeViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		1D9F8CBB213D461900E10DB6 /* Connectivity */ = {
@@ -260,6 +307,7 @@
 				TargetAttributes = {
 					1D6C6E2F210EEC4600652369 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 				};
 			};
@@ -290,16 +338,21 @@
 				1D6C6E3E210EEC4800652369 /* LaunchScreen.storyboard in Resources */,
 				1D36BACC211092410024FB89 /* background.png in Resources */,
 				1D6C6E3B210EEC4800652369 /* Assets.xcassets in Resources */,
+				1D7ADE1D213EB59B00061AC8 /* marco_island_bg.png in Resources */,
 				1D9D2F0621132DAF00867DB1 /* LoginPopup.xib in Resources */,
+				1D7ADE1C213EB59B00061AC8 /* digital_beach_pass.png in Resources */,
 				1D36BAC921108F100024FB89 /* m_logo.png in Resources */,
 				1D18A6982137D294003D705B /* ActivationScreen.xib in Resources */,
+				1D7ADE1B213EB59B00061AC8 /* membership.png in Resources */,
 				1D219AD92126D8FF0078B9F3 /* MerchandiseLIst.xib in Resources */,
 				1D9D2F04211325F200867DB1 /* beach_opening_bg.png in Resources */,
 				1D36BAC721108A370024FB89 /* Splash.xib in Resources */,
 				1D36BAD02110A0EA0024FB89 /* rider_rating.png in Resources */,
+				1D7ADE1A213EB59B00061AC8 /* paradise_grill.png in Resources */,
 				1D6C6E39210EEC4600652369 /* Main.storyboard in Resources */,
 				1D36BACE211092610024FB89 /* background_568.png in Resources */,
 				1D9D2F02211323A600867DB1 /* DashboardItem.xib in Resources */,
+				1D7ADE15213E8FB700061AC8 /* logo_black.png in Resources */,
 				1D219ADB2126DD5C0078B9F3 /* product_img.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,9 +410,13 @@
 				1D9F8CC2213D6F0400E10DB6 /* GlobalVariable.swift in Sources */,
 				1D9F8CBD213D463400E10DB6 /* Connectivity.swift in Sources */,
 				1D1DE03421397D1C003AAFAC /* DataStore.swift in Sources */,
+				1D7ADE1F213EBF1900061AC8 /* HomeViewController.swift in Sources */,
 				1D18A69B2138137B003D705B /* MyUtils.swift in Sources */,
+				1D7ADE26213ED11000061AC8 /* AsyncImageView.m in Sources */,
 				1D9F8CBF213D4DD000E10DB6 /* WebServiceResponse.swift in Sources */,
 				1D36BAC621108A370024FB89 /* Splash.swift in Sources */,
+				1D7ADE13213E5A7600061AC8 /* UserMaster.swift in Sources */,
+				1D7ADE21213EC7F600061AC8 /* DashboardMaster.swift in Sources */,
 				1D6C6E34210EEC4600652369 /* AppDelegate.swift in Sources */,
 				1D18A6972137D294003D705B /* ActivationScreen.swift in Sources */,
 				1D4775A521392D0E00365F06 /* BaseViewController.swift in Sources */,
@@ -509,6 +566,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76PG75763U;
@@ -520,6 +578,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ild.marcoisland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/AsyncImageView/marcoisland-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -531,6 +591,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76PG75763U;
@@ -542,6 +603,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ild.marcoisland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/AsyncImageView/marcoisland-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

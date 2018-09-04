@@ -17,6 +17,7 @@ class ActivationScreen: BaseViewController,UITextFieldDelegate {
     @IBOutlet weak var viewTxtEmail: UIView!
     @IBOutlet weak var viewTxtActivationCode: UIView!
     @IBOutlet weak var btnVerify: UIButton!
+    var loadingView : UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class ActivationScreen: BaseViewController,UITextFieldDelegate {
         btnVerify.layer.cornerRadius = 5
         btnVerify.clipsToBounds = true
         UITextField.appearance().tintColor = colorFromRGBA(fromHex: HEXCOLOR_TINT, alpha: 1)
+        loadingView = MyUtils.customLoader(self.window)
     }
     
     //MARK: TextField Delegate Method:-☞🙂
@@ -100,13 +102,13 @@ class ActivationScreen: BaseViewController,UITextFieldDelegate {
         else
         {
             if Connectivity.isConnectedToInternet {
-                
-                var response : Bool = RestcallManager.sharedInstance.getCmsDetails()
-                //print("Jasim")
-                let url : String = "http://mica.h10testing1.info/wp-api/discountPageContent"
-                Alamofire.request(url)
+                //let url : String = "http://mica.h10testing1.info/wp-api/discountPageContent"
+                self.view.addSubview(loadingView!)
+                let baseURL :String = RestcallManager.sharedInstance.getBaseUrl()
+                let strURL : String = baseURL + "checkLogin?email_id="+txtEmail.text!+"&activation_code="+txtActivationCode.text!;
+                Alamofire.request(strURL)
                     .responseJSON { response in
-                        //print(response)
+                        
                         // check for errors
                         guard response.result.error == nil else {
                             // got an error in getting the data, need to handle it
@@ -124,31 +126,29 @@ class ActivationScreen: BaseViewController,UITextFieldDelegate {
                             return
                         }
                         
-                        // get and print the title
-                        guard let todoTitle = json["Data"] as? String else {
-                            print("Could not get todo title from JSON")
-                            return
-                        }
-                        let data = todoTitle.data(using: .utf8)!
-                        let decoder = JSONDecoder()
-                        
-                        do {
-                            let people = try decoder.decode([CmsMaster].self, from: data)
-                            let arr: NSMutableArray = []
-                            //print(people[0].post_title)
-                            for i in 0..<people.count {
-                                let fund: CmsMaster = people[i]
-                                arr.add(fund)
+                        var webResponse: WebServiceResponse? = nil
+                        webResponse = WebServiceResponse().initWithJsonData(jsonData: json) as? WebServiceResponse
+                        if webResponse != nil && (webResponse?.StatusCode == "0") && webResponse?.Data != nil {
+                            let responseData = webResponse?.Data.data(using: .utf8)!
+                            let decoder = JSONDecoder()
+                            
+                            do {
+                                let dataArray = try decoder.decode([UserMaster].self, from: responseData!)
+                                DataStore.sharedInstance.addUser(dataArray as NSArray)
+                                self.populateData()
+                            } catch {
+                                print(error)
                             }
-                            DataStore.sharedInstance.addCms(arr)
-                            
-                            let dd = DataStore.sharedInstance.getCms()
-                            let product: CmsMaster = dd[0] as! CmsMaster
-                            print(product.post_id)
-                            
-                        } catch {
-                            print(error.localizedDescription)
                         }
+                        else if webResponse != nil && (webResponse?.StatusCode != "0") && webResponse?.Data != nil {
+                            self.showAlertView(title: "Oops!!!", msg: (webResponse?.Data)!, controller: self, okClicked: {
+                            })
+                        }
+                        else{
+                            self.showAlertView(title: "Oops!!!", msg: "We are having an issue connecting to server. Please try again after some time.", controller: self, okClicked: {
+                            })
+                        }
+                        
                         
                         /*let data = todoTitle.data(using: .utf8)!
                          do {
@@ -169,6 +169,19 @@ class ActivationScreen: BaseViewController,UITextFieldDelegate {
                 showAlertView(title: "Alert!", msg: "No Internet connection.", controller: self, okClicked: {
                 })
             }
+        }
+    }
+    
+    func populateData() {
+        loadingView?.removeFromSuperview()
+        let userData = DataStore.sharedInstance.getUser()
+        let user: UserMaster = userData[0] as! UserMaster
+        MyUtils.setUserDefault(key: "userEmail", value: user.mr_email!)
+        MyUtils.setUserDefault(key: "memberID", value: user.id!)
+        DispatchQueue.main.async {
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = mainStoryBoard.instantiateViewController(withIdentifier: "TabbarController") as! TabbarController
+            self.present(newViewController, animated: true, completion: nil)
         }
     }
     
