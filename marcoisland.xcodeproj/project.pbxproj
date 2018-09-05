@@ -28,6 +28,11 @@
 		1D6C6E39210EEC4600652369 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E37210EEC4600652369 /* Main.storyboard */; };
 		1D6C6E3B210EEC4800652369 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E3A210EEC4800652369 /* Assets.xcassets */; };
 		1D6C6E3E210EEC4800652369 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E3C210EEC4800652369 /* LaunchScreen.storyboard */; };
+		1D79FB70213FB27700AB9BE7 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D79FB6F213FB27600AB9BE7 /* DiaryViewController.swift */; };
+		1D79FB72213FBE0900AB9BE7 /* DiscountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D79FB71213FBE0900AB9BE7 /* DiscountViewController.swift */; };
+		1D79FB74213FCB9F00AB9BE7 /* MerchandiseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D79FB73213FCB9E00AB9BE7 /* MerchandiseViewController.swift */; };
+		1D79FB76213FCC4F00AB9BE7 /* ProductMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D79FB75213FCC4F00AB9BE7 /* ProductMaster.swift */; };
+		1D79FB79213FE5BD00AB9BE7 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D79FB77213FE5BD00AB9BE7 /* ProductCell.swift */; };
 		1D7ADE13213E5A7600061AC8 /* UserMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7ADE12213E5A7600061AC8 /* UserMaster.swift */; };
 		1D7ADE15213E8FB700061AC8 /* logo_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D7ADE14213E8FB400061AC8 /* logo_black.png */; };
 		1D7ADE1A213EB59B00061AC8 /* paradise_grill.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D7ADE16213EB59A00061AC8 /* paradise_grill.png */; };
@@ -51,7 +56,6 @@
 		DCD29F6E213F0784008FAC63 /* no_image.png in Resources */ = {isa = PBXBuildFile; fileRef = DCD29F67213F0780008FAC63 /* no_image.png */; };
 		DCD29F6F213F0784008FAC63 /* user_inactive_border.png in Resources */ = {isa = PBXBuildFile; fileRef = DCD29F68213F0781008FAC63 /* user_inactive_border.png */; };
 		DCD29F70213F0784008FAC63 /* qr_code.png in Resources */ = {isa = PBXBuildFile; fileRef = DCD29F69213F0781008FAC63 /* qr_code.png */; };
-		DCD29F71213F0784008FAC63 /* product_img.png in Resources */ = {isa = PBXBuildFile; fileRef = DCD29F6A213F0782008FAC63 /* product_img.png */; };
 		DCD29F72213F0784008FAC63 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = DCD29F6B213F0783008FAC63 /* user.png */; };
 		DCD29F73213F0784008FAC63 /* user_active_border.png in Resources */ = {isa = PBXBuildFile; fileRef = DCD29F6C213F0784008FAC63 /* user_active_border.png */; };
 /* End PBXBuildFile section */
@@ -80,6 +84,11 @@
 		1D6C6E3A210EEC4800652369 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D6C6E3D210EEC4800652369 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D6C6E3F210EEC4800652369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D79FB6F213FB27600AB9BE7 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		1D79FB71213FBE0900AB9BE7 /* DiscountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountViewController.swift; sourceTree = "<group>"; };
+		1D79FB73213FCB9E00AB9BE7 /* MerchandiseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchandiseViewController.swift; sourceTree = "<group>"; };
+		1D79FB75213FCC4F00AB9BE7 /* ProductMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductMaster.swift; sourceTree = "<group>"; };
+		1D79FB77213FE5BD00AB9BE7 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		1D7ADE12213E5A7600061AC8 /* UserMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMaster.swift; sourceTree = "<group>"; };
 		1D7ADE14213E8FB400061AC8 /* logo_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_black.png; sourceTree = "<group>"; };
 		1D7ADE16213EB59A00061AC8 /* paradise_grill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paradise_grill.png; sourceTree = "<group>"; };
@@ -106,7 +115,6 @@
 		DCD29F67213F0780008FAC63 /* no_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_image.png; sourceTree = "<group>"; };
 		DCD29F68213F0781008FAC63 /* user_inactive_border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_inactive_border.png; sourceTree = "<group>"; };
 		DCD29F69213F0781008FAC63 /* qr_code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qr_code.png; sourceTree = "<group>"; };
-		DCD29F6A213F0782008FAC63 /* product_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = product_img.png; path = "../../../../Desktop/Android Project/macroisland/app/src/main/res/drawable/product_img.png"; sourceTree = "<group>"; };
 		DCD29F6B213F0783008FAC63 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		DCD29F6C213F0784008FAC63 /* user_active_border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_active_border.png; sourceTree = "<group>"; };
 		E4C8E39E6A602927B4E696A3 /* Pods-marcoisland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marcoisland.release.xcconfig"; path = "Pods/Target Support Files/Pods-marcoisland/Pods-marcoisland.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				1D1DE03121397032003AAFAC /* CmsMaster.swift */,
+				1D79FB75213FCC4F00AB9BE7 /* ProductMaster.swift */,
 				1D7ADE20213EC7F500061AC8 /* DashboardMaster.swift */,
 				1D7ADE12213E5A7600061AC8 /* UserMaster.swift */,
 			);
@@ -166,7 +175,6 @@
 			children = (
 				1D219ADA2126DD5C0078B9F3 /* product_img.png */,
 				DCD29F67213F0780008FAC63 /* no_image.png */,
-				DCD29F6A213F0782008FAC63 /* product_img.png */,
 				DCD29F69213F0781008FAC63 /* qr_code.png */,
 				DCD29F66213F0780008FAC63 /* right_arrow.png */,
 				DCD29F6C213F0784008FAC63 /* user_active_border.png */,
@@ -258,6 +266,10 @@
 				1D18A6962137D294003D705B /* ActivationScreen.xib */,
 				1D7ADE1E213EBF1900061AC8 /* HomeViewController.swift */,
 				DCD29F64213F0548008FAC63 /* BeachPassViewController.swift */,
+				1D79FB6F213FB27600AB9BE7 /* DiaryViewController.swift */,
+				1D79FB71213FBE0900AB9BE7 /* DiscountViewController.swift */,
+				1D79FB73213FCB9E00AB9BE7 /* MerchandiseViewController.swift */,
+				1D79FB77213FE5BD00AB9BE7 /* ProductCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -374,7 +386,6 @@
 				1D7ADE1B213EB59B00061AC8 /* membership.png in Resources */,
 				1D219AD92126D8FF0078B9F3 /* MerchandiseLIst.xib in Resources */,
 				1D9D2F04211325F200867DB1 /* beach_opening_bg.png in Resources */,
-				DCD29F71213F0784008FAC63 /* product_img.png in Resources */,
 				1D36BAC721108A370024FB89 /* Splash.xib in Resources */,
 				1D36BAD02110A0EA0024FB89 /* rider_rating.png in Resources */,
 				1D7ADE1A213EB59B00061AC8 /* paradise_grill.png in Resources */,
@@ -436,8 +447,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D79FB74213FCB9F00AB9BE7 /* MerchandiseViewController.swift in Sources */,
+				1D79FB79213FE5BD00AB9BE7 /* ProductCell.swift in Sources */,
 				1D6C6E36210EEC4600652369 /* TabbarController.swift in Sources */,
 				1D1DE0362139897B003AAFAC /* RestcallManager.swift in Sources */,
+				1D79FB76213FCC4F00AB9BE7 /* ProductMaster.swift in Sources */,
 				1D9F8CC2213D6F0400E10DB6 /* GlobalVariable.swift in Sources */,
 				1D9F8CBD213D463400E10DB6 /* Connectivity.swift in Sources */,
 				1D1DE03421397D1C003AAFAC /* DataStore.swift in Sources */,
@@ -446,9 +460,11 @@
 				1D7ADE26213ED11000061AC8 /* AsyncImageView.m in Sources */,
 				DCD29F65213F0548008FAC63 /* BeachPassViewController.swift in Sources */,
 				1D9F8CBF213D4DD000E10DB6 /* WebServiceResponse.swift in Sources */,
+				1D79FB70213FB27700AB9BE7 /* DiaryViewController.swift in Sources */,
 				1D36BAC621108A370024FB89 /* Splash.swift in Sources */,
 				1D7ADE13213E5A7600061AC8 /* UserMaster.swift in Sources */,
 				1D7ADE21213EC7F600061AC8 /* DashboardMaster.swift in Sources */,
+				1D79FB72213FBE0900AB9BE7 /* DiscountViewController.swift in Sources */,
 				1D6C6E34210EEC4600652369 /* AppDelegate.swift in Sources */,
 				1D18A6972137D294003D705B /* ActivationScreen.swift in Sources */,
 				1D4775A521392D0E00365F06 /* BaseViewController.swift in Sources */,

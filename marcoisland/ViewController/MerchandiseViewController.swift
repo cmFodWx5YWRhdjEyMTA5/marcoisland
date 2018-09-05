@@ -1,36 +1,25 @@
 //
-//  BeachPassViewController.swift
+//  MerchandiseViewController.swift
 //  marcoisland
 //
-//  Created by Jasimuddin Ansari on 04/09/18.
+//  Created by Kalyan Mohan Paul on 9/5/18.
 //  Copyright © 2018 Infologic. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 
-class BeachPassViewController: UIViewController {
+class MerchandiseViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
     var window: UIWindow?
-    @IBOutlet weak var viewRounded: UIView!
-    @IBOutlet weak var imgUser: UIImageView!
-    @IBOutlet weak var lblUserName: UILabel!
-    @IBOutlet weak var lblValidFrom: UILabel!
-    @IBOutlet weak var lblValidTo: UILabel!
-    @IBOutlet weak var lblStatus: UILabel!
-    @IBOutlet weak var imgQRCode: UIImageView!
-    
     var loadingView : UIView?
-    
+    @IBOutlet var tableViewProduct : UITableView?
+    var productArray : NSMutableArray = []
     override func viewDidLoad() {
         super.viewDidLoad()
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        imgUser.layer.borderWidth = 3
-        imgUser.layer.masksToBounds = false
-        imgUser.layer.borderColor = MyUtils.colorFromRGBA(fromHex: 0xFF6F6D, alpha: 1).cgColor
-        imgUser.layer.cornerRadius = imgUser.frame.height/2
-        imgUser.clipsToBounds = true
         loadingView = MyUtils.customLoader(self.window)
+        tableViewProduct?.isHidden=true
         self.retrieveData()
     }
 
@@ -38,7 +27,7 @@ class BeachPassViewController: UIViewController {
         if Connectivity.isConnectedToInternet {
             self.view.addSubview(loadingView!)
             let baseURL :String = RestcallManager.sharedInstance.getBaseUrl()
-            let strURL : String = baseURL + "showProfile?member_id="+MyUtils.getUserDefault(key: "memberID")
+            let strURL : String = baseURL + "listOfItems"
             Alamofire.request(strURL)
                 .responseJSON { response in
                     
@@ -62,8 +51,8 @@ class BeachPassViewController: UIViewController {
                         let decoder = JSONDecoder()
                         
                         do {
-                            let dataArray = try decoder.decode([UserMaster].self, from: responseData!)
-                            DataStore.sharedInstance.addUser(dataArray as NSArray)
+                            let dataArray = try decoder.decode([ProductMaster].self, from: responseData!)
+                            DataStore.sharedInstance.addProduct(dataArray as NSArray)
                             self.populateData()
                         } catch {
                             print(error)
@@ -87,36 +76,53 @@ class BeachPassViewController: UIViewController {
     
     func populateData(){
         loadingView?.removeFromSuperview()
-        let dashboard = DataStore.sharedInstance.getUser()
-        let userObj: UserMaster = dashboard[0] as! UserMaster
-        lblUserName.text = userObj.mr_full_name
-        lblValidFrom.text = userObj.mr_valid_from
-        lblValidTo.text = userObj.mr_valid_to
-        if userObj.checkstatus == "n"{
-            lblStatus.text = "Inactive"
-        }
-        else{
-            lblStatus.text = "Active"
-        }
-        imgUser.contentMode = .scaleAspectFill
-        imgUser.clipsToBounds = true
-        //cancel loading previous image for cell
-        AsyncImageLoader.shared().cancelLoadingImages(forTarget: imgUser)
-        AsyncImageLoader.shared().cache = nil
-        //set placeholder image or cell won't update when image is loaded
-        imgUser.image = UIImage(named: "user")
-        //load the image
-        imgUser.imageURL = URL(string: userObj.mr_profile_image!)
-        
-        let image = MyUtils.generateQRCode(from: "http://mica.h10testing1.info/member-verification/?mid="+userObj.id!)
-        imgQRCode.image = image
+        tableViewProduct?.isHidden=false
+        productArray = (DataStore.sharedInstance.getProduct()).mutableCopy() as! NSMutableArray
+        tableViewProduct?.reloadData()
     }
+    
+    //tableview delegate
+    
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //make sure you use the relevant array sizes
+        return productArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        var cell : ProductCell! = tableView.dequeueReusableCell(withIdentifier: "ProductCell") as! ProductCell
+        if(cell == nil)
+        {
+            cell = Bundle.main.loadNibNamed("ProductCell", owner: self, options: nil)![0] as! ProductCell;
+        }
+        let productObj: ProductMaster = productArray[indexPath.row] as! ProductMaster
+        cell.lblProductName.text = productObj.item_name
+        cell.lblProductDesc.text = productObj.item_des
+        cell.lblProductPrice.text = productObj.item_price
+        
+        cell.imgProduct.contentMode = .scaleAspectFill
+        cell.imgProduct.clipsToBounds = true
+        AsyncImageLoader.shared().cancelLoadingImages(forTarget: cell.imgProduct)
+        cell.imgProduct.image = UIImage(named: "user")
+        cell.imgProduct.imageURL = URL(string: productObj.item_image1!)
+
+        return cell as ProductCell
+    }
+    
     
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }

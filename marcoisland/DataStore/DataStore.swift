@@ -12,6 +12,7 @@ class DataStore: NSObject {
     var cmsDict: NSMutableDictionary = [:]
     var userDict: NSMutableDictionary = [:]
     var dashboardDict: NSMutableDictionary = [:]
+    var productDict: NSMutableDictionary = [:]
     
     static let sharedInstance = DataStore()
     
@@ -62,5 +63,21 @@ class DataStore: NSObject {
     
     func getDashboard() -> NSArray {
         return dashboardDict.allValues as NSArray
+    }
+    
+    func addProduct(_ productArray: NSArray) {
+        productDict.removeAllObjects()
+        if productArray.count > 0 {
+            for i in 0..<(productArray.count ) {
+                let fund = productArray[i] as? ProductMaster
+                if let anId = fund?.id {
+                    productDict[anId] = fund
+                }
+            }
+        }
+    }
+    
+    func getProduct() -> NSArray {
+        return productDict.allValues as NSArray
     }
 }
