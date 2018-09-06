@@ -617,7 +617,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76PG75763U;
+				DEVELOPMENT_TEAM = 5CT8PAR7G3;
 				INFOPLIST_FILE = marcoisland/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -642,7 +642,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76PG75763U;
+				DEVELOPMENT_TEAM = 5CT8PAR7G3;
 				INFOPLIST_FILE = marcoisland/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
