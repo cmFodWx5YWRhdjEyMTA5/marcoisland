@@ -141,4 +141,37 @@ class MyUtils: NSObject {
         }
         return nil
     }
+    
+    static func load_image(image_url_string:String, view:UIImageView)
+    {
+        let image_url: NSURL = NSURL(string: image_url_string)!
+        let image_from_url_request: NSURLRequest = NSURLRequest(url: image_url as URL)
+        
+        NSURLConnection.sendAsynchronousRequest(
+            image_from_url_request as URLRequest, queue: OperationQueue.main,
+            completionHandler: {(response: URLResponse!,
+                data: Data!,
+                error: Error!) -> Void in
+                if error == nil && data != nil {
+                    view.image = UIImage(data: data)
+                }
+        })
+
+        //        let request = URLRequest(url: URL(string: image_url_string)!)
+        //        let session = URLSession.shared
+        //        let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
+        //
+        //            do {
+        //                if error == nil && data != nil {
+        //                    view.image = UIImage(data: data!)
+        //                }
+        //            } catch {
+        //                print("error")
+        //            }
+        //
+        //        })
+        
+        //       task.resume()
+        
+    }
 }

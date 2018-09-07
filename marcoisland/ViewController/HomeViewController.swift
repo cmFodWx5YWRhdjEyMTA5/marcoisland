@@ -16,12 +16,24 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var imgTopImg: UIImageView!
     var loadingView : UIView?
     
+    @IBOutlet var viewCollectionMenu: Array<UIView>?
+    @IBOutlet var viewCollectionTitle:Array<UIView>?
+    @IBOutlet var imgCollectionMenu: Array<UIImageView>?
+    @IBOutlet var lblCollectionMenu: Array<UILabel>?
+    
+    @IBOutlet weak var lblScrollingText: UILabel!
+    @IBOutlet weak var viewScrollingText: UIView!
+    @IBOutlet weak var viewContainer: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.window = UIWindow(frame: UIScreen.main.bounds)
         viewProtectingIsland.layer.cornerRadius = 10
         viewProtectingIsland.clipsToBounds = true
         loadingView = MyUtils.customLoader(self.window)
+        viewProtectingIsland.isHidden = true
+        viewContainer.isHidden = true
+        viewScrollingText.isHidden = true
         self.populateDashboard()
     }
 
@@ -78,19 +90,61 @@ class HomeViewController: BaseViewController {
     
     func populateData(){
         loadingView?.removeFromSuperview()
+        viewProtectingIsland.isHidden = false
+        viewContainer.isHidden = false
+        viewScrollingText.isHidden = false
         let dashboard = DataStore.sharedInstance.getDashboard()
         let dashObj: DashboardMaster = dashboard[0] as! DashboardMaster
         
         imgTopImg.contentMode = .scaleAspectFill
         imgTopImg.clipsToBounds = true
-        //cancel loading previous image for cell
         AsyncImageLoader.shared().cancelLoadingImages(forTarget: imgTopImg)
         AsyncImageLoader.shared().cache = nil
-        //set placeholder image or cell won't update when image is loaded
         imgTopImg.image = UIImage(named: "profile")
-        //load the image
         imgTopImg.imageURL = URL(string: dashObj.top_image!)
+        
+       for i in 0..<(dashboard.count) {
+            let dashObj: DashboardMaster = dashboard[i] as! DashboardMaster
+            viewCollectionMenu?[i].layer.cornerRadius = 10
+            viewCollectionMenu?[i].clipsToBounds = true
+            setGradientBackground(titleView: viewCollectionTitle![i])
+            lblCollectionMenu?[i].text = dashObj.cms_title
+            imgCollectionMenu?[i].contentMode = .scaleAspectFill
+            imgCollectionMenu?[i].clipsToBounds = true
+            MyUtils.load_image(image_url_string: dashObj.cms_image_thumb!, view:(imgCollectionMenu?[i])!)
+        
+            let tap = CustomTapGesture(target: self, action: #selector(self.handleTap(_:)))
+            tap.dasboardID = dashObj.id!
+            viewCollectionMenu?[i].addGestureRecognizer(tap)
+        }
+        //lblScrollingText.text = dashObj.scroll_text!
+//        UIView.animate(withDuration: 12.0, delay: 1, options: ([.curveLinear, .repeat]), animations: {() -> Void in
+//            self.lblScrollingText.center = CGPoint(x: 0 - self.lblScrollingText.bounds.size.width / 2, y: self.lblScrollingText.center.y)
+//        }, completion:  { _ in })
+
     }
+    
+    @objc func handleTap(_ sender: CustomTapGesture) {
+        print(sender.dasboardID)
+        let viewController = SpotDetailsViewController(nibName: "SpotDetailsViewController", bundle: nil)
+        viewController.dashboardID = sender.dasboardID
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    
+    
+    func setGradientBackground(titleView:UIView) {
+        let colorTop =  UIColor.clear.cgColor
+        let colorBottom = UIColor.black.cgColor
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.frame = titleView.bounds
+        titleView.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+   
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

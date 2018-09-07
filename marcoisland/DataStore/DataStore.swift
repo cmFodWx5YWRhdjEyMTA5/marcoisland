@@ -65,6 +65,14 @@ class DataStore: NSObject {
         return dashboardDict.allValues as NSArray
     }
     
+    func getDashboardByID(_ ID: String?) -> DashboardMaster? {
+        var fund: DashboardMaster?
+        if ID != nil && !(ID == "") {
+            fund = dashboardDict.value(forKey: ID!) as? DashboardMaster
+        }
+        return fund
+    }
+    
     func addProduct(_ productArray: NSArray) {
         productDict.removeAllObjects()
         if productArray.count > 0 {

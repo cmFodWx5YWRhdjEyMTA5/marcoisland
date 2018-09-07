@@ -13,7 +13,7 @@ class DashboardMaster: Decodable {
     var cms_title :String?
     var cms_image_thumb :String?
     var cms_image_large :String?
-    var cms_desc :String?
+    var cms_des :String?
     var top_image :String?
     var scroll_text :String?
     
@@ -22,7 +22,7 @@ class DashboardMaster: Decodable {
         cms_title = ""
         cms_image_thumb = ""
         cms_image_large = ""
-        cms_desc = ""
+        cms_des = ""
         top_image = ""
         scroll_text = ""
     }
@@ -32,7 +32,7 @@ class DashboardMaster: Decodable {
         cms_title = jsonData["cms_title"] as? String
         cms_image_thumb = jsonData["cms_image_thumb"] as? String
         cms_image_large = jsonData["cms_image_large"] as? String
-        cms_desc = jsonData["cms_desc"] as? String
+        cms_des = jsonData["cms_des"] as? String
         top_image = jsonData["top_image"] as? String
         scroll_text = jsonData["scroll_text"] as? String
     }
@@ -43,7 +43,7 @@ class DashboardMaster: Decodable {
             "cms_title" : cms_title,
             "cms_image_thumb" : cms_image_thumb,
             "cms_image_large" : cms_image_large,
-            "cms_desc" : cms_desc,
+            "cms_des" : cms_des,
             "top_image" : top_image,
             "scroll_text" : scroll_text,
             

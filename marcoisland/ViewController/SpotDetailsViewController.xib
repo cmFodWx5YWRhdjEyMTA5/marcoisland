@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpotDetailsViewController" customModule="Marco_Island" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxW-ra-OiO">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aml-OH-oOn">
+                            <rect key="frame" x="8" y="24" width="51" height="41"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="51" id="6x8-n4-ygR"/>
+                                <constraint firstAttribute="height" constant="41" id="VfP-eh-Ay3"/>
+                            </constraints>
+                            <state key="normal" image="ic_back"/>
+                            <connections>
+                                <action selector="btnBack:" destination="-1" eventType="touchUpInside" id="3aj-3e-qCG"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Digital Beach" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfs-vO-sH3">
+                            <rect key="frame" x="67" y="30" width="339" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="xkZ-bB-FcS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.4343345153" blue="0.42763448450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="hfs-vO-sH3" secondAttribute="bottom" constant="17" id="FLe-Rn-cIa"/>
+                        <constraint firstAttribute="height" constant="77" id="Ntv-R4-KS6"/>
+                        <constraint firstItem="Aml-OH-oOn" firstAttribute="top" secondItem="vxW-ra-OiO" secondAttribute="top" constant="24" id="bjH-pJ-rQq"/>
+                        <constraint firstAttribute="bottom" secondItem="Aml-OH-oOn" secondAttribute="bottom" constant="12" id="bnd-DE-RkD"/>
+                        <constraint firstAttribute="trailing" secondItem="hfs-vO-sH3" secondAttribute="trailing" constant="8" id="dnV-PA-NcD"/>
+                        <constraint firstItem="hfs-vO-sH3" firstAttribute="leading" secondItem="Aml-OH-oOn" secondAttribute="trailing" constant="8" id="vvg-Tn-GMK"/>
+                        <constraint firstItem="Aml-OH-oOn" firstAttribute="leading" secondItem="vxW-ra-OiO" secondAttribute="leading" constant="8" id="xt0-tX-CEG"/>
+                        <constraint firstItem="hfs-vO-sH3" firstAttribute="top" secondItem="vxW-ra-OiO" secondAttribute="top" constant="30" id="zp9-Pr-aH4"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kd-w1-Z77">
+                    <rect key="frame" x="0.0" y="77" width="414" height="659"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6kd-w1-Z77" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Lrp-d8-p3e"/>
+                <constraint firstItem="6kd-w1-Z77" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="ag8-SN-mhu"/>
+                <constraint firstItem="6kd-w1-Z77" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="dtL-JP-KPO"/>
+                <constraint firstItem="vxW-ra-OiO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="eRa-UN-Q4o"/>
+                <constraint firstItem="vxW-ra-OiO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="g6y-QZ-n6u"/>
+                <constraint firstItem="vxW-ra-OiO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mm7-E1-IrF"/>
+                <constraint firstItem="6kd-w1-Z77" firstAttribute="top" secondItem="vxW-ra-OiO" secondAttribute="bottom" id="wyF-Q7-mTP"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="32" y="86"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_back" width="30" height="30"/>
+    </resources>
+</document>

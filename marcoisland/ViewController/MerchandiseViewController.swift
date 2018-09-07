@@ -20,6 +20,7 @@ class MerchandiseViewController: UIViewController,UITableViewDataSource, UITable
         self.window = UIWindow(frame: UIScreen.main.bounds)
         loadingView = MyUtils.customLoader(self.window)
         tableViewProduct?.isHidden=true
+        tableViewProduct?.separatorColor=UIColor.clear
         self.retrieveData()
     }
 
@@ -114,48 +115,12 @@ class MerchandiseViewController: UIViewController,UITableViewDataSource, UITable
 //        AsyncImageLoader.shared().cancelLoadingImages(forTarget: cell.imgProduct)
 //        cell.imgProduct.image = UIImage(named: "user")
 //        cell.imgProduct.imageURL = URL(string: productObj.item_image1!)
+        MyUtils.load_image(image_url_string: productObj.item_image1!, view:cell.imgProduct)
         
-        load_image(image_url_string: productObj.item_image1!, view:cell.imgProduct)
-
         return cell as ProductCell
     }
     
-    func load_image(image_url_string:String, view:UIImageView)
-    {
-        
-        var image_url: NSURL = NSURL(string: image_url_string)!
-        let image_from_url_request: NSURLRequest = NSURLRequest(url: image_url as URL)
-        
-        NSURLConnection.sendAsynchronousRequest(
-            image_from_url_request as URLRequest, queue: OperationQueue.main,
-            completionHandler: {(response: URLResponse!,
-                data: Data!,
-                error: Error!) -> Void in
-
-                if error == nil && data != nil {
-                    view.image = UIImage(data: data)
-                }
-
-        })
-        
-        
-//        let request = URLRequest(url: URL(string: image_url_string)!)
-//        let session = URLSession.shared
-//        let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
-//
-//            do {
-//                if error == nil && data != nil {
-//                    view.image = UIImage(data: data!)
-//                }
-//            } catch {
-//                print("error")
-//            }
-//
-//        })
-        
-//       task.resume()
-        
-    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

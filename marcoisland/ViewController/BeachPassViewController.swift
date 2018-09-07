@@ -13,6 +13,7 @@ class BeachPassViewController: UIViewController {
 
     var window: UIWindow?
     @IBOutlet weak var viewRounded: UIView!
+    @IBOutlet weak var viewTopProfile: UIView!
     @IBOutlet weak var imgUser: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblValidFrom: UILabel!
@@ -31,6 +32,8 @@ class BeachPassViewController: UIViewController {
         imgUser.layer.cornerRadius = imgUser.frame.height/2
         imgUser.clipsToBounds = true
         loadingView = MyUtils.customLoader(self.window)
+        viewTopProfile.isHidden = true
+        imgQRCode.isHidden = true
         self.retrieveData()
     }
 
@@ -87,6 +90,8 @@ class BeachPassViewController: UIViewController {
     
     func populateData(){
         loadingView?.removeFromSuperview()
+        viewTopProfile.isHidden = false
+        imgQRCode.isHidden = false
         let dashboard = DataStore.sharedInstance.getUser()
         let userObj: UserMaster = dashboard[0] as! UserMaster
         lblUserName.text = userObj.mr_full_name

@@ -21,6 +21,7 @@ class ProductCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         btnBuyNow.layer.cornerRadius=10
+        viewCell.layer.cornerRadius=10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
