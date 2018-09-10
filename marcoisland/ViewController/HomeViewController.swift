@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SQLite3
 
 class HomeViewController: BaseViewController {
 
@@ -15,7 +16,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var viewProtectingIsland: UIView!
     @IBOutlet weak var imgTopImg: UIImageView!
     var loadingView : UIView?
-    
+    var dbHelper : DBHelper?
     @IBOutlet var viewCollectionMenu: Array<UIView>?
     @IBOutlet var viewCollectionTitle:Array<UIView>?
     @IBOutlet var imgCollectionMenu: Array<UIImageView>?
@@ -34,6 +35,7 @@ class HomeViewController: BaseViewController {
         viewProtectingIsland.isHidden = true
         viewContainer.isHidden = true
         viewScrollingText.isHidden = true
+        dbHelper?.initializeDatabase()
         self.populateDashboard()
     }
 
@@ -94,34 +96,13 @@ class HomeViewController: BaseViewController {
         viewContainer.isHidden = false
         viewScrollingText.isHidden = false
         let dashboard = DataStore.sharedInstance.getDashboard()
-        let dashObj: DashboardMaster = dashboard[0] as! DashboardMaster
         
-        imgTopImg.contentMode = .scaleAspectFill
-        imgTopImg.clipsToBounds = true
-        AsyncImageLoader.shared().cancelLoadingImages(forTarget: imgTopImg)
-        AsyncImageLoader.shared().cache = nil
-        imgTopImg.image = UIImage(named: "profile")
-        imgTopImg.imageURL = URL(string: dashObj.top_image!)
         
-       for i in 0..<(dashboard.count) {
-            let dashObj: DashboardMaster = dashboard[i] as! DashboardMaster
-            viewCollectionMenu?[i].layer.cornerRadius = 10
-            viewCollectionMenu?[i].clipsToBounds = true
-            setGradientBackground(titleView: viewCollectionTitle![i])
-            lblCollectionMenu?[i].text = dashObj.cms_title
-            imgCollectionMenu?[i].contentMode = .scaleAspectFill
-            imgCollectionMenu?[i].clipsToBounds = true
-            MyUtils.load_image(image_url_string: dashObj.cms_image_thumb!, view:(imgCollectionMenu?[i])!)
-        
-            let tap = CustomTapGesture(target: self, action: #selector(self.handleTap(_:)))
-            tap.dasboardID = dashObj.id!
-            viewCollectionMenu?[i].addGestureRecognizer(tap)
+        for i in 0..<(dashboard.count) {
+            let dashboardObj = dashboard[i] as? DashboardMaster
+            let result: Bool = (dbHelper?.insertDataIntoDashboardmaster(rowId: 0, cms_id: (dashboardObj?.id)!, cms_title: (dashboardObj?.cms_title)!, cms_image_thumb: (dashboardObj?.cms_image_thumb)!, cms_image_large: (dashboardObj?.cms_image_large)!, cms_des: (dashboardObj?.cms_des)!, top_image: (dashboardObj?.top_image)!, scroll_text: (dashboardObj?.scroll_text)!))!
+            print(result)
         }
-        //lblScrollingText.text = dashObj.scroll_text!
-//        UIView.animate(withDuration: 12.0, delay: 1, options: ([.curveLinear, .repeat]), animations: {() -> Void in
-//            self.lblScrollingText.center = CGPoint(x: 0 - self.lblScrollingText.bounds.size.width / 2, y: self.lblScrollingText.center.y)
-//        }, completion:  { _ in })
-
     }
     
     @objc func handleTap(_ sender: CustomTapGesture) {
@@ -151,14 +132,57 @@ class HomeViewController: BaseViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func commonDashboardOnlineOffline(){
+        
+        var db: OpaquePointer?
+        
+        let queryString = "SELECT * FROM '\(DBHelper.TBL_DASHBOARD_MST)' "
+        var stmt:OpaquePointer?
+        
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert: \(errmsg)")
+            return
+        }
+        
+        
+        
+        while(sqlite3_step(stmt) == SQLITE_ROW){
+            let id = sqlite3_column_int(stmt, 0)
+            let name = String(cString: sqlite3_column_text(stmt, 1))
+            let powerrank = sqlite3_column_int(stmt, 2)
+            
+        }
+        
+        
+        
+        
+        let dashObj: DashboardMaster = dashboard[0] as! DashboardMaster
+        
+        imgTopImg.contentMode = .scaleAspectFill
+        imgTopImg.clipsToBounds = true
+        AsyncImageLoader.shared().cancelLoadingImages(forTarget: imgTopImg)
+        AsyncImageLoader.shared().cache = nil
+        imgTopImg.image = UIImage(named: "profile")
+        imgTopImg.imageURL = URL(string: dashObj.top_image!)
+        
+        for i in 0..<(dashboard.count) {
+            let dashObj: DashboardMaster = dashboard[i] as! DashboardMaster
+            viewCollectionMenu?[i].layer.cornerRadius = 10
+            viewCollectionMenu?[i].clipsToBounds = true
+            setGradientBackground(titleView: viewCollectionTitle![i])
+            lblCollectionMenu?[i].text = dashObj.cms_title
+            imgCollectionMenu?[i].contentMode = .scaleAspectFill
+            imgCollectionMenu?[i].clipsToBounds = true
+            MyUtils.load_image(image_url_string: dashObj.cms_image_thumb!, view:(imgCollectionMenu?[i])!)
+            
+            let tap = CustomTapGesture(target: self, action: #selector(self.handleTap(_:)))
+            tap.dasboardID = dashObj.id!
+            viewCollectionMenu?[i].addGestureRecognizer(tap)
+        }
+        //lblScrollingText.text = dashObj.scroll_text!
+        //        UIView.animate(withDuration: 12.0, delay: 1, options: ([.curveLinear, .repeat]), animations: {() -> Void in
+        //            self.lblScrollingText.center = CGPoint(x: 0 - self.lblScrollingText.bounds.size.width / 2, y: self.lblScrollingText.center.y)
+        //        }, completion:  { _ in })
     }
-    */
-
 }

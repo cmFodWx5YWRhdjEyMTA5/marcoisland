@@ -58,6 +58,7 @@
 		1D9F8CBD213D463400E10DB6 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F8CBC213D463400E10DB6 /* Connectivity.swift */; };
 		1D9F8CBF213D4DD000E10DB6 /* WebServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F8CBE213D4DCF00E10DB6 /* WebServiceResponse.swift */; };
 		1D9F8CC2213D6F0400E10DB6 /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F8CC1213D6F0400E10DB6 /* GlobalVariable.swift */; };
+		1DAB672021468EBA005AF28C /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAB671F21468EBA005AF28C /* DBHelper.swift */; };
 		D213691B95C3F7C4A7B13C92 /* Pods_marcoisland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB96681F7C0320529C19BDD5 /* Pods_marcoisland.framework */; };
 		DCD29F65213F0548008FAC63 /* BeachPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD29F64213F0548008FAC63 /* BeachPassViewController.swift */; };
 		DCD29F6D213F0784008FAC63 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DCD29F66213F0780008FAC63 /* right_arrow.png */; };
@@ -124,6 +125,7 @@
 		1D9F8CBC213D463400E10DB6 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		1D9F8CBE213D4DCF00E10DB6 /* WebServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceResponse.swift; sourceTree = "<group>"; };
 		1D9F8CC1213D6F0400E10DB6 /* GlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
+		1DAB671F21468EBA005AF28C /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		BECB3F46D9A6158CA663E04D /* Pods-marcoisland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marcoisland.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marcoisland/Pods-marcoisland.debug.xcconfig"; sourceTree = "<group>"; };
 		DB96681F7C0320529C19BDD5 /* Pods_marcoisland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_marcoisland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD29F64213F0548008FAC63 /* BeachPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachPassViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		1D6C6E32210EEC4600652369 /* marcoisland */ = {
 			isa = PBXGroup;
 			children = (
+				1DAB671C21468D29005AF28C /* SqliteHelper */,
 				1D7ADE27213ED17300061AC8 /* ViewController */,
 				1D7ADE22213ED0EA00061AC8 /* AsyncImageView */,
 				1D9F8CC0213D6EEB00E10DB6 /* GlobalVariable */,
@@ -312,6 +315,14 @@
 				1D9F8CC1213D6F0400E10DB6 /* GlobalVariable.swift */,
 			);
 			path = GlobalVariable;
+			sourceTree = "<group>";
+		};
+		1DAB671C21468D29005AF28C /* SqliteHelper */ = {
+			isa = PBXGroup;
+			children = (
+				1DAB671F21468EBA005AF28C /* DBHelper.swift */,
+			);
+			path = SqliteHelper;
 			sourceTree = "<group>";
 		};
 		2E65320977FF1CB58B549D91 /* Frameworks */ = {
@@ -480,6 +491,7 @@
 				1D3D2703214284C90017DA9C /* CustomTapGesture.swift in Sources */,
 				1D45D80621411474004383A3 /* GradientView.swift in Sources */,
 				1D79FB79213FE5BD00AB9BE7 /* ProductCell.swift in Sources */,
+				1DAB672021468EBA005AF28C /* DBHelper.swift in Sources */,
 				1D6C6E36210EEC4600652369 /* TabbarController.swift in Sources */,
 				1D1DE0362139897B003AAFAC /* RestcallManager.swift in Sources */,
 				1D79FB76213FCC4F00AB9BE7 /* ProductMaster.swift in Sources */,
