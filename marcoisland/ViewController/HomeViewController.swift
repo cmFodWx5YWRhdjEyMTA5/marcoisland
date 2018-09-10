@@ -35,6 +35,7 @@ class HomeViewController: BaseViewController {
         viewProtectingIsland.isHidden = true
         viewContainer.isHidden = true
         viewScrollingText.isHidden = true
+        dbHelper = DBHelper()
         dbHelper?.initializeDatabase()
         self.populateDashboard()
     }
@@ -97,12 +98,15 @@ class HomeViewController: BaseViewController {
         viewScrollingText.isHidden = false
         let dashboard = DataStore.sharedInstance.getDashboard()
         
+        var res :Bool = (dbHelper?.truncateTable(TABLE_NAME: DBHelper.TBL_DASHBOARD_MST))!
         
         for i in 0..<(dashboard.count) {
             let dashboardObj = dashboard[i] as? DashboardMaster
             let result: Bool = (dbHelper?.insertDataIntoDashboardmaster(rowId: 0, cms_id: (dashboardObj?.id)!, cms_title: (dashboardObj?.cms_title)!, cms_image_thumb: (dashboardObj?.cms_image_thumb)!, cms_image_large: (dashboardObj?.cms_image_large)!, cms_des: (dashboardObj?.cms_des)!, top_image: (dashboardObj?.top_image)!, scroll_text: (dashboardObj?.scroll_text)!))!
-            print(result)
+            //print(result)
         }
+        
+        commonDashboardOnlineOffline()
     }
     
     @objc func handleTap(_ sender: CustomTapGesture) {
@@ -135,7 +139,11 @@ class HomeViewController: BaseViewController {
     func commonDashboardOnlineOffline(){
         
         var db: OpaquePointer?
-        
+        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            .appendingPathComponent(DBHelper.DATABASE_NAME)
+        if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
+            print("error opening database")
+        }
         let queryString = "SELECT * FROM '\(DBHelper.TBL_DASHBOARD_MST)' "
         var stmt:OpaquePointer?
         
@@ -150,14 +158,16 @@ class HomeViewController: BaseViewController {
         while(sqlite3_step(stmt) == SQLITE_ROW){
             let id = sqlite3_column_int(stmt, 0)
             let name = String(cString: sqlite3_column_text(stmt, 1))
-            let powerrank = sqlite3_column_int(stmt, 2)
+            //let powerrank = sqlite3_column_int(stmt, 2)
             
+            print(id)
+                print(name)
         }
         
         
         
         
-        let dashObj: DashboardMaster = dashboard[0] as! DashboardMaster
+        /*let dashObj: DashboardMaster = dashboard[0] as! DashboardMaster
         
         imgTopImg.contentMode = .scaleAspectFill
         imgTopImg.clipsToBounds = true
@@ -179,7 +189,7 @@ class HomeViewController: BaseViewController {
             let tap = CustomTapGesture(target: self, action: #selector(self.handleTap(_:)))
             tap.dasboardID = dashObj.id!
             viewCollectionMenu?[i].addGestureRecognizer(tap)
-        }
+        }*/
         //lblScrollingText.text = dashObj.scroll_text!
         //        UIView.animate(withDuration: 12.0, delay: 1, options: ([.curveLinear, .repeat]), animations: {() -> Void in
         //            self.lblScrollingText.center = CGPoint(x: 0 - self.lblScrollingText.bounds.size.width / 2, y: self.lblScrollingText.center.y)
