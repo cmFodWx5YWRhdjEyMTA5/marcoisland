@@ -37,7 +37,7 @@ class DiaryViewController: UIViewController, UIWebViewDelegate {
     }
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         loadingView?.removeFromSuperview()
-        MyUtils.sharedInstance.showAlertViewDialog(title: "Oops!!!", msg: "Some problem during feth data. Please try again.", controller: self, okClicked: {
+        MyUtils.sharedInstance.showAlertViewDialog(title: "Oops!!!", msg: "No Internet connection. Please try again.", controller: self, okClicked: {
         })
     }
     override func didReceiveMemoryWarning() {

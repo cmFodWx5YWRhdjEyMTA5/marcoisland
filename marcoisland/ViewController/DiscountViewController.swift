@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SQLite3
 
 class DiscountViewController: UIViewController, UIWebViewDelegate {
 
@@ -15,6 +16,7 @@ class DiscountViewController: UIViewController, UIWebViewDelegate {
     var loadingView : UIView?
     @IBOutlet weak var webViewDiscount: UIWebView!
     @IBOutlet weak var lblTitle: UILabel!
+    var dbHelper : DBHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class DiscountViewController: UIViewController, UIWebViewDelegate {
         loadingView = MyUtils.customLoader(self.window)
         lblTitle.isHidden = true
         webViewDiscount.isHidden = true
+        dbHelper = DBHelper()
         self.retrieveData()
     }
 
@@ -71,28 +74,62 @@ class DiscountViewController: UIViewController, UIWebViewDelegate {
             }
         }
         else{
-            MyUtils.sharedInstance.showAlertViewDialog(title: "Alert!", msg: "No Internet connection.", controller: self, okClicked: {
-            })
+            commonCMSOnlineOffline()
         }
     }
     
     func populateData(){
-        loadingView?.removeFromSuperview()
+        
         let dashboard = DataStore.sharedInstance.getCms()
         let cmsObj: CmsMaster = dashboard[0] as! CmsMaster
-        lblTitle.text = cmsObj.post_title
-        let myHTML = cmsObj.post_content
-        let myDescriptionHTML = """
-        <html> \n\
-        <head> \n\
-        <style type="text/css"> \n\
-        body {font-family: "\("helvetica")"; font-size: \(18);}\n\
-        </style> \n\
-        </head> \n\
-        <body>\(myHTML)</body> \n\
-        </html>
-        """
-        webViewDiscount.loadHTMLString(myDescriptionHTML, baseURL: nil)
+        var res :Bool = (dbHelper?.truncateTable(TABLE_NAME: DBHelper.TBL_CMS_MST))!
+        let result: Bool = (dbHelper?.insertDataIntoCMSmaster(rowId: 0, post_id: cmsObj.post_id, post_title: cmsObj.post_title, post_content: cmsObj.post_content))!
+        if result == true{
+            commonCMSOnlineOffline()
+        }
+    }
+    
+    func commonCMSOnlineOffline(){
+        
+        loadingView?.removeFromSuperview()
+        
+        var db: OpaquePointer?
+        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            .appendingPathComponent(DBHelper.DATABASE_NAME)
+        if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
+            print("error opening database")
+        }
+        let queryString = "SELECT * FROM '\(DBHelper.TBL_CMS_MST)'"
+        var stmt:OpaquePointer?
+        
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert: \(errmsg)")
+            return
+        }
+        var checkInternet = 0
+        while(sqlite3_step(stmt) == SQLITE_ROW){
+            checkInternet = 1
+            lblTitle.text = String(cString: sqlite3_column_text(stmt, 2))
+            let myHTML = String(cString: sqlite3_column_text(stmt, 3))
+            let myDescriptionHTML = """
+            <html> \n\
+            <head> \n\
+            <style type="text/css"> \n\
+            body {font-family: "\("helvetica")"; font-size: \(18);}\n\
+            </style> \n\
+            </head> \n\
+            <body>\(myHTML)</body> \n\
+            </html>
+            """
+            webViewDiscount.loadHTMLString(myDescriptionHTML, baseURL: nil)
+        }
+        if checkInternet == 0 {
+            MyUtils.sharedInstance.showAlertViewDialog(title: "Alert!", msg: "No Internet connection.", controller: self, okClicked: {
+            })
+        }
+        
+        
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {

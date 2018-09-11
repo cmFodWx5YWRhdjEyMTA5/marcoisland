@@ -21,7 +21,7 @@ class DBHelper: NSObject {
     var arrColumnNames: [AnyHashable] = []
     var affectedRows: Int = 0
     var lastInsertedRowID: Int64 = 0
-    
+    let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
     
     override init() {
         super.init()
@@ -61,10 +61,10 @@ class DBHelper: NSObject {
             "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
             "cms_id VARCHAR(10), " +
             "cms_title VARCHAR(100), " +
-            "cms_image_thumb VARCHAR(100), " +
-            "cms_image_large VARCHAR(100), " +
+            "cms_image_thumb VARCHAR(200), " +
+            "cms_image_large VARCHAR(200), " +
             "cms_des TEXT, " +
-            "top_image VARCHAR(100), " +
+            "top_image VARCHAR(200), " +
             "scroll_text TEXT, " +
             "created_at DATETIME DEFAULT (datetime('now','localtime'))"+")";
         
@@ -102,11 +102,56 @@ class DBHelper: NSObject {
         
         var stmt: OpaquePointer?
         
-        let queryString = "INSERT INTO '\(DBHelper.TBL_USER_MST)' VALUES (null, '\(member_id)',  '\(mr_email)', '\(mr_full_name)', '\(mr_profile_image)', '\(mr_activation_code)','\(mr_valid_from)','\(mr_valid_to)','\(checkstatus)' )"
+        let queryString = "INSERT INTO '\(DBHelper.TBL_USER_MST)' (member_id, mr_email, mr_full_name, mr_profile_image, mr_activation_code, mr_valid_from, mr_valid_to, checkstatus) VALUES (?,?,?,?,?,?,?,?)"
         
         if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing insert: \(errmsg)")
+            return false
+        }
+        
+        if sqlite3_bind_text(stmt, 1, member_id, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
+            return false
+        }
+        
+        if sqlite3_bind_text(stmt, 2, mr_email, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
+            return false
+        }
+        
+        if sqlite3_bind_text(stmt, 3, mr_full_name, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
+            return false
+        }
+        if sqlite3_bind_text(stmt, 4, mr_profile_image, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
+            return false
+        }
+        
+        if sqlite3_bind_text(stmt, 5, mr_activation_code, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
+            return false
+        }
+        
+        if sqlite3_bind_text(stmt, 6, mr_valid_from, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
+            return false
+        }
+        if sqlite3_bind_text(stmt, 7, mr_valid_to, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
+            return false
+        }
+        if sqlite3_bind_text(stmt, 8, checkstatus, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
             return false
         }
         
@@ -122,11 +167,27 @@ class DBHelper: NSObject {
         
         var stmt: OpaquePointer?
         
-        let queryString = "INSERT INTO '\(DBHelper.TBL_CMS_MST)' VALUES (null, '\(post_id)',  '\(post_title)', '\(post_content)' )"
+        let queryString = "INSERT INTO '\(DBHelper.TBL_CMS_MST)' (post_id, post_title, post_content) VALUES (?,?,?)"
         
         if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing insert: \(errmsg)")
+            return false
+        }
+        
+        if sqlite3_bind_text(stmt, 1, post_id, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
+            return false
+        }
+        if sqlite3_bind_text(stmt, 2, post_title, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
+            return false
+        }
+        if sqlite3_bind_text(stmt, 3, post_content, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
             return false
         }
         
@@ -153,40 +214,40 @@ class DBHelper: NSObject {
             return false
         }
         
-        if sqlite3_bind_text(stmt, 1, cms_id, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 1, cms_id, -1, SQLITE_TRANSIENT) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
         }
         
-        if sqlite3_bind_text(stmt, 2, cms_title, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 2, cms_title, -1, SQLITE_TRANSIENT) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
         }
         
-        if sqlite3_bind_text(stmt, 3, cms_image_thumb, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 3, cms_image_thumb, -1, SQLITE_TRANSIENT) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
         }
-        if sqlite3_bind_text(stmt, 4, cms_image_large, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 4, cms_image_large, -1, SQLITE_TRANSIENT) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
         }
-        if sqlite3_bind_text(stmt, 5, cms_des, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 5, cms_des, -1, SQLITE_TRANSIENT) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
         }
-        if sqlite3_bind_text(stmt, 6, top_image, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 6, top_image, -1, SQLITE_TRANSIENT) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
         }
         
-        if sqlite3_bind_text(stmt, 7, scroll_text, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 7, scroll_text, -1, SQLITE_TRANSIENT) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
@@ -227,7 +288,7 @@ class DBHelper: NSObject {
         var stmt2: OpaquePointer?
         
         let deleteQuery1 = "delete from '\(TABLE_NAME)' "
-        //let deleteQuery2 = "delete from SQLITE_SEQUENCE WHERE name=" + TABLE_NAME
+        let deleteQuery2 = "delete from sqlite_sequence WHERE name='\(TABLE_NAME)' "
         
         if sqlite3_prepare(db, deleteQuery1, -1, &stmt1, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
@@ -241,7 +302,7 @@ class DBHelper: NSObject {
             return false
         }
         
-        /*if sqlite3_prepare(db, deleteQuery2, -1, &stmt2, nil) != SQLITE_OK{
+        if sqlite3_prepare(db, deleteQuery2, -1, &stmt2, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing insert: \(errmsg)")
             return false
@@ -251,7 +312,7 @@ class DBHelper: NSObject {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure inserting: \(errmsg)")
             return false
-        }*/
+        }
         
         
         return true;

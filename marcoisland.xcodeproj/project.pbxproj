@@ -25,6 +25,8 @@
 		1D3D2700214250D30017DA9C /* SpotDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3D26FE214250D30017DA9C /* SpotDetailsViewController.swift */; };
 		1D3D2701214250D30017DA9C /* SpotDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D3D26FF214250D30017DA9C /* SpotDetailsViewController.xib */; };
 		1D3D2703214284C90017DA9C /* CustomTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3D2702214284C90017DA9C /* CustomTapGesture.swift */; };
+		1D4063C52147EEAF00E8EBA6 /* String+Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4063C42147EEAF00E8EBA6 /* String+Html.swift */; };
+		1D4063C721480AE100E8EBA6 /* UITextView+scrolls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4063C621480AE000E8EBA6 /* UITextView+scrolls.swift */; };
 		1D45D80121410027004383A3 /* loader_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D45D7FD21410025004383A3 /* loader_thumb.png */; };
 		1D45D80221410027004383A3 /* close_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D45D7FE21410026004383A3 /* close_sign.png */; };
 		1D45D80321410027004383A3 /* loader_thumb_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D45D7FF21410026004383A3 /* loader_thumb_full.png */; };
@@ -88,6 +90,8 @@
 		1D3D26FE214250D30017DA9C /* SpotDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailsViewController.swift; sourceTree = "<group>"; };
 		1D3D26FF214250D30017DA9C /* SpotDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotDetailsViewController.xib; sourceTree = "<group>"; };
 		1D3D2702214284C90017DA9C /* CustomTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTapGesture.swift; sourceTree = "<group>"; };
+		1D4063C42147EEAF00E8EBA6 /* String+Html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Html.swift"; sourceTree = "<group>"; };
+		1D4063C621480AE000E8EBA6 /* UITextView+scrolls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+scrolls.swift"; sourceTree = "<group>"; };
 		1D45D7FD21410025004383A3 /* loader_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader_thumb.png; sourceTree = "<group>"; };
 		1D45D7FE21410026004383A3 /* close_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_sign.png; sourceTree = "<group>"; };
 		1D45D7FF21410026004383A3 /* loader_thumb_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader_thumb_full.png; sourceTree = "<group>"; };
@@ -218,6 +222,15 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		1D4063C32147EE6000E8EBA6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1D4063C42147EEAF00E8EBA6 /* String+Html.swift */,
+				1D4063C621480AE000E8EBA6 /* UITextView+scrolls.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		1D4775A321392CC500365F06 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +260,7 @@
 		1D6C6E32210EEC4600652369 /* marcoisland */ = {
 			isa = PBXGroup;
 			children = (
+				1D4063C32147EE6000E8EBA6 /* Extension */,
 				1DAB671C21468D29005AF28C /* SqliteHelper */,
 				1D7ADE27213ED17300061AC8 /* ViewController */,
 				1D7ADE22213ED0EA00061AC8 /* AsyncImageView */,
@@ -489,6 +503,7 @@
 			files = (
 				1D79FB74213FCB9F00AB9BE7 /* MerchandiseViewController.swift in Sources */,
 				1D3D2703214284C90017DA9C /* CustomTapGesture.swift in Sources */,
+				1D4063C721480AE100E8EBA6 /* UITextView+scrolls.swift in Sources */,
 				1D45D80621411474004383A3 /* GradientView.swift in Sources */,
 				1D79FB79213FE5BD00AB9BE7 /* ProductCell.swift in Sources */,
 				1DAB672021468EBA005AF28C /* DBHelper.swift in Sources */,
@@ -507,6 +522,7 @@
 				1D79FB70213FB27700AB9BE7 /* DiaryViewController.swift in Sources */,
 				1D36BAC621108A370024FB89 /* Splash.swift in Sources */,
 				1D7ADE13213E5A7600061AC8 /* UserMaster.swift in Sources */,
+				1D4063C52147EEAF00E8EBA6 /* String+Html.swift in Sources */,
 				1D7ADE21213EC7F600061AC8 /* DashboardMaster.swift in Sources */,
 				1D79FB72213FBE0900AB9BE7 /* DiscountViewController.swift in Sources */,
 				1D6C6E34210EEC4600652369 /* AppDelegate.swift in Sources */,

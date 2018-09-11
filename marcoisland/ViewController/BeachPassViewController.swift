@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SQLite3
 
 class BeachPassViewController: UIViewController {
 
@@ -20,20 +21,17 @@ class BeachPassViewController: UIViewController {
     @IBOutlet weak var lblValidTo: UILabel!
     @IBOutlet weak var lblStatus: UILabel!
     @IBOutlet weak var imgQRCode: UIImageView!
-    
+    @IBOutlet weak var imgCheckProfile: UIImageView!
+    var dbHelper : DBHelper?
     var loadingView : UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        imgUser.layer.borderWidth = 3
-        imgUser.layer.masksToBounds = false
-        imgUser.layer.borderColor = MyUtils.colorFromRGBA(fromHex: 0xFF6F6D, alpha: 1).cgColor
-        imgUser.layer.cornerRadius = imgUser.frame.height/2
-        imgUser.clipsToBounds = true
         loadingView = MyUtils.customLoader(self.window)
         viewTopProfile.isHidden = true
         imgQRCode.isHidden = true
+        dbHelper = DBHelper()
         self.retrieveData()
     }
 
@@ -83,18 +81,82 @@ class BeachPassViewController: UIViewController {
             }
         }
         else{
-            MyUtils.sharedInstance.showAlertViewDialog(title: "Alert!", msg: "No Internet connection.", controller: self, okClicked: {
-            })
+            commonProfileOnlineOffline()
         }
     }
     
     func populateData(){
-        loadingView?.removeFromSuperview()
-        viewTopProfile.isHidden = false
-        imgQRCode.isHidden = false
+        
         let dashboard = DataStore.sharedInstance.getUser()
         let userObj: UserMaster = dashboard[0] as! UserMaster
-        lblUserName.text = userObj.mr_full_name
+        
+        var res :Bool = (dbHelper?.truncateTable(TABLE_NAME: DBHelper.TBL_USER_MST))!
+        
+        for i in 0..<(dashboard.count) {
+            let userObj = dashboard[i] as? UserMaster
+            let result: Bool = (dbHelper?.insertDataIntoUsermaster(rowId: 0, member_id: (userObj?.id)!, mr_email: (userObj?.mr_email)!, mr_full_name: (userObj?.mr_full_name)!, mr_profile_image: (userObj?.mr_profile_image)!, mr_activation_code: (userObj?.mr_activation_code)!, mr_valid_from: (userObj?.mr_valid_from)!, mr_valid_to: (userObj?.mr_valid_to)!, checkstatus: (userObj?.checkstatus)!))!
+            print(result)
+        }
+        commonProfileOnlineOffline()
+    }
+    
+    func commonProfileOnlineOffline(){
+        
+        var db: OpaquePointer?
+        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            .appendingPathComponent(DBHelper.DATABASE_NAME)
+        if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
+            print("error opening database")
+        }
+        let queryString = "SELECT * FROM '\(DBHelper.TBL_USER_MST)'"
+        var stmt:OpaquePointer?
+        
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert: \(errmsg)")
+            return
+        }
+        
+        var checkInternet = 0
+        while(sqlite3_step(stmt) == SQLITE_ROW){
+            checkInternet = 1
+            lblUserName.text = String(cString: sqlite3_column_text(stmt, 3))
+            lblValidFrom.text = String(cString: sqlite3_column_text(stmt, 6))
+            lblValidTo.text = String(cString: sqlite3_column_text(stmt, 7))
+            
+            imgUser.layer.borderWidth = 3
+            imgUser.layer.masksToBounds = false
+            imgUser.layer.cornerRadius = imgUser.frame.height/2
+            imgUser.clipsToBounds = true
+            
+            if String(cString: sqlite3_column_text(stmt, 8)) == "n"{
+                lblStatus.text = "Inactive"
+                imgCheckProfile.image = UIImage(named: "close_sign")
+                imgUser.layer.borderColor = MyUtils.colorFromRGBA(fromHex: 0x04b031, alpha: 1).cgColor
+            }
+            else{
+                lblStatus.text = "Active"
+                imgCheckProfile.image = UIImage(named: "check_sign")
+                imgUser.layer.borderColor = MyUtils.colorFromRGBA(fromHex: 0xfd010c, alpha: 1).cgColor
+            }
+             MyUtils.load_image(image_url_string: String(cString: sqlite3_column_text(stmt, 4)), view:(imgUser))
+            let image = MyUtils.generateQRCode(from: "http://mica.h10testing1.info/member-verification/?mid="+String(cString: sqlite3_column_text(stmt, 1)))
+            imgQRCode.image = image
+        }
+        
+        if checkInternet == 0 {
+            MyUtils.sharedInstance.showAlertViewDialog(title: "Alert!", msg: "No Internet connection.", controller: self, okClicked: {
+            })
+        }
+        else{
+            loadingView?.removeFromSuperview()
+            viewTopProfile.isHidden = false
+            imgQRCode.isHidden = false
+        }
+        /*
+         let dashboard = DataStore.sharedInstance.getUser()
+         let userObj: UserMaster = dashboard[0] as! UserMaster
+         lblUserName.text = userObj.mr_full_name
         lblValidFrom.text = userObj.mr_valid_from
         lblValidTo.text = userObj.mr_valid_to
         if userObj.checkstatus == "n"{
@@ -114,9 +176,8 @@ class BeachPassViewController: UIViewController {
         imgUser.imageURL = URL(string: userObj.mr_profile_image!)
         
         let image = MyUtils.generateQRCode(from: "http://mica.h10testing1.info/member-verification/?mid="+userObj.id!)
-        imgQRCode.image = image
+        imgQRCode.image = image*/
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

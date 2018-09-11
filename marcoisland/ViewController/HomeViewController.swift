@@ -86,19 +86,17 @@ class HomeViewController: BaseViewController {
             }
         }
         else{
-            showAlertView(title: "Alert!", msg: "No Internet connection.", controller: self, okClicked: {
-            })
+            commonDashboardOnlineOffline()
+            /*showAlertView(title: "Alert!", msg: "No Internet connection.", controller: self, okClicked: {
+            })*/
         }
     }
     
     func populateData(){
-        loadingView?.removeFromSuperview()
-        viewProtectingIsland.isHidden = false
-        viewContainer.isHidden = false
-        viewScrollingText.isHidden = false
-        let dashboard = DataStore.sharedInstance.getDashboard()
         
-        var res :Bool = (dbHelper?.truncateTable(TABLE_NAME: DBHelper.TBL_DASHBOARD_MST))!
+        let dashboard = DataStore.sharedInstance.getDashboard()
+       
+       var res :Bool = (dbHelper?.truncateTable(TABLE_NAME: DBHelper.TBL_DASHBOARD_MST))!
         
         for i in 0..<(dashboard.count) {
             let dashboardObj = dashboard[i] as? DashboardMaster
@@ -153,20 +151,50 @@ class HomeViewController: BaseViewController {
             return
         }
         
-        
-        
+        var i = 0
+        var checkInternet = 0
         while(sqlite3_step(stmt) == SQLITE_ROW){
-            let id = sqlite3_column_int(stmt, 0)
-            let name = String(cString: sqlite3_column_text(stmt, 1))
-            //let powerrank = sqlite3_column_int(stmt, 2)
+            checkInternet = 1
+            if i == 0{
+                /*imgTopImg.contentMode = .scaleAspectFill
+                imgTopImg.clipsToBounds = true
+                AsyncImageLoader.shared().cancelLoadingImages(forTarget: imgTopImg)
+                AsyncImageLoader.shared().cache = nil
+                imgTopImg.image = UIImage(named: "loader_thumb_full")
+                imgTopImg.imageURL = URL(string: String(cString: sqlite3_column_text(stmt, 6)))*/
+                MyUtils.load_image(image_url_string: String(cString: sqlite3_column_text(stmt, 6)), view:(imgTopImg))
+                lblScrollingText.text = String(cString: sqlite3_column_text(stmt, 7)).htmlToString
+                UIView.animate(withDuration: 12.0, delay: 1, options: ([.curveLinear, .repeat]), animations: {() -> Void in
+                    self.lblScrollingText.center = CGPoint(x: 0 - self.lblScrollingText.bounds.size.width / 2, y: self.lblScrollingText.center.y)
+                }, completion:  { _ in })
+            }else{
+                
+            }
+            viewCollectionMenu?[i].layer.cornerRadius = 10
+            viewCollectionMenu?[i].clipsToBounds = true
+            setGradientBackground(titleView: viewCollectionTitle![i])
+            lblCollectionMenu?[i].text = String(cString: sqlite3_column_text(stmt, 2))
+            imgCollectionMenu?[i].contentMode = .scaleAspectFill
+            imgCollectionMenu?[i].clipsToBounds = true
+            MyUtils.load_image(image_url_string: String(cString: sqlite3_column_text(stmt, 3)), view:(imgCollectionMenu?[i])!)
+            let tap = CustomTapGesture(target: self, action: #selector(self.handleTap(_:)))
+            tap.dasboardID = String(cString: sqlite3_column_text(stmt, 1))
+            viewCollectionMenu?[i].addGestureRecognizer(tap)
             
-            print(id)
-                print(name)
+           i += 1
         }
         
-        
-        
-        
+        if checkInternet == 0 {
+            showAlertView(title: "Alert!", msg: "No Internet connection.", controller: self, okClicked: {
+            })
+        }
+        else{
+            loadingView?.removeFromSuperview()
+            viewProtectingIsland.isHidden = false
+            viewContainer.isHidden = false
+            viewScrollingText.isHidden = false
+        }
+    
         /*let dashObj: DashboardMaster = dashboard[0] as! DashboardMaster
         
         imgTopImg.contentMode = .scaleAspectFill
@@ -194,5 +222,22 @@ class HomeViewController: BaseViewController {
         //        UIView.animate(withDuration: 12.0, delay: 1, options: ([.curveLinear, .repeat]), animations: {() -> Void in
         //            self.lblScrollingText.center = CGPoint(x: 0 - self.lblScrollingText.bounds.size.width / 2, y: self.lblScrollingText.center.y)
         //        }, completion:  { _ in })
+    }
+    
+    
+    func convertImageToBase64String(urlString: String) -> String {
+        // Put Your Image URL
+        let url:NSURL = NSURL(string : urlString)!
+        // It Will turn Into Data
+        let imageData : NSData = NSData.init(contentsOf: url as URL)!
+        // Data Will Encode into Base64
+        /*let str64 = imageData.base64EncodedData(options: .lineLength64Characters)*/
+        // Data Will Encode into Base64 String
+        return imageData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
+    }
+    
+    func convertBase64ToImage(imageString: String) -> UIImage {
+        let imageData = Data(base64Encoded: imageString, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
+        return UIImage(data: imageData)!
     }
 }
