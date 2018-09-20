@@ -88,4 +88,11 @@ class DataStore: NSObject {
     func getProduct() -> NSArray {
         return productDict.allValues as NSArray
     }
+    func getProductByID(_ ID: String?) -> ProductMaster? {
+        var fund: ProductMaster?
+        if ID != nil && !(ID == "") {
+            fund = productDict.value(forKey: ID!) as? ProductMaster
+        }
+        return fund
+    }
 }

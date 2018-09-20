@@ -14,8 +14,9 @@
             <connections>
                 <outlet property="backgroundScroll" destination="6kd-w1-Z77" id="pd9-Ai-XU5"/>
                 <outlet property="imgBanner" destination="ui5-Fb-jXL" id="ASZ-6f-PLP"/>
-                <outlet property="lblDescription" destination="Qte-K6-Tpp" id="dhp-Wl-6p1"/>
+                <outlet property="lblDescription" destination="cLW-RF-PJe" id="GGG-4b-3L1"/>
                 <outlet property="lblTitle" destination="Rk3-Ne-cAA" id="0EJ-rE-Gsu"/>
+                <outlet property="topTitle" destination="hfs-vO-sH3" id="pc7-sf-cWi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewContainer" destination="beH-YP-55g" id="q4c-SJ-Ng2"/>
             </connections>
@@ -40,7 +41,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Digital Beach" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfs-vO-sH3">
-                            <rect key="frame" x="67" y="30" width="300" height="30"/>
+                            <rect key="frame" x="51" y="30" width="300" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="xkZ-bB-FcS"/>
                             </constraints>
@@ -55,8 +56,8 @@
                         <constraint firstAttribute="height" constant="77" id="Ntv-R4-KS6"/>
                         <constraint firstItem="Aml-OH-oOn" firstAttribute="top" secondItem="vxW-ra-OiO" secondAttribute="top" constant="24" id="bjH-pJ-rQq"/>
                         <constraint firstAttribute="bottom" secondItem="Aml-OH-oOn" secondAttribute="bottom" constant="12" id="bnd-DE-RkD"/>
-                        <constraint firstAttribute="trailing" secondItem="hfs-vO-sH3" secondAttribute="trailing" constant="8" id="dnV-PA-NcD"/>
-                        <constraint firstItem="hfs-vO-sH3" firstAttribute="leading" secondItem="Aml-OH-oOn" secondAttribute="trailing" constant="8" id="vvg-Tn-GMK"/>
+                        <constraint firstAttribute="trailing" secondItem="hfs-vO-sH3" secondAttribute="trailing" constant="24" id="dnV-PA-NcD"/>
+                        <constraint firstItem="hfs-vO-sH3" firstAttribute="leading" secondItem="Aml-OH-oOn" secondAttribute="trailing" constant="-8" id="vvg-Tn-GMK"/>
                         <constraint firstItem="Aml-OH-oOn" firstAttribute="leading" secondItem="vxW-ra-OiO" secondAttribute="leading" constant="8" id="xt0-tX-CEG"/>
                         <constraint firstItem="hfs-vO-sH3" firstAttribute="top" secondItem="vxW-ra-OiO" secondAttribute="top" constant="30" id="zp9-Pr-aH4"/>
                     </constraints>
@@ -82,24 +83,21 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qte-K6-Tpp">
+                                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLW-RF-PJe">
                                     <rect key="frame" x="10" y="221" width="356" height="361"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
+                                </webView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="Qte-K6-Tpp" secondAttribute="bottom" constant="8" id="3ho-0T-sYb"/>
-                                <constraint firstItem="Qte-K6-Tpp" firstAttribute="top" secondItem="Rk3-Ne-cAA" secondAttribute="bottom" constant="8" id="KK8-Ia-60j"/>
                                 <constraint firstItem="Rk3-Ne-cAA" firstAttribute="leading" secondItem="beH-YP-55g" secondAttribute="leading" constant="10" id="L5v-4t-aSL"/>
+                                <constraint firstItem="cLW-RF-PJe" firstAttribute="top" secondItem="Rk3-Ne-cAA" secondAttribute="bottom" constant="8" id="Nlt-dL-sOd"/>
                                 <constraint firstItem="ui5-Fb-jXL" firstAttribute="top" secondItem="beH-YP-55g" secondAttribute="top" constant="10" id="RL4-4f-AvI"/>
-                                <constraint firstAttribute="trailing" secondItem="Qte-K6-Tpp" secondAttribute="trailing" constant="9" id="YVp-oW-xuq"/>
+                                <constraint firstAttribute="trailing" secondItem="cLW-RF-PJe" secondAttribute="trailing" constant="9" id="YpE-BP-z0G"/>
+                                <constraint firstItem="cLW-RF-PJe" firstAttribute="leading" secondItem="beH-YP-55g" secondAttribute="leading" constant="10" id="aDf-bV-9iZ"/>
                                 <constraint firstAttribute="trailing" secondItem="ui5-Fb-jXL" secondAttribute="trailing" constant="9.5" id="hFa-6L-KfU"/>
-                                <constraint firstItem="Qte-K6-Tpp" firstAttribute="leading" secondItem="beH-YP-55g" secondAttribute="leading" constant="10" id="iC0-bq-853"/>
                                 <constraint firstAttribute="trailing" secondItem="Rk3-Ne-cAA" secondAttribute="trailing" constant="9" id="lq5-7q-E98"/>
+                                <constraint firstAttribute="bottom" secondItem="cLW-RF-PJe" secondAttribute="bottom" constant="8" id="tN0-l0-JTr"/>
                                 <constraint firstItem="ui5-Fb-jXL" firstAttribute="leading" secondItem="beH-YP-55g" secondAttribute="leading" constant="9" id="vYL-tE-iry"/>
                                 <constraint firstItem="Rk3-Ne-cAA" firstAttribute="top" secondItem="ui5-Fb-jXL" secondAttribute="bottom" constant="22" id="yhH-1q-wLa"/>
                             </constraints>

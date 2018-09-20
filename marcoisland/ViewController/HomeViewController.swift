@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SQLite3
+import MarqueeLabel
 
 class HomeViewController: BaseViewController {
 
@@ -22,7 +23,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet var imgCollectionMenu: Array<UIImageView>?
     @IBOutlet var lblCollectionMenu: Array<UILabel>?
     
-    @IBOutlet weak var lblScrollingText: UILabel!
+    @IBOutlet weak var lblScrollingText: MarqueeLabel!
     @IBOutlet weak var viewScrollingText: UIView!
     @IBOutlet weak var viewContainer: UIView!
     
@@ -38,6 +39,11 @@ class HomeViewController: BaseViewController {
         dbHelper = DBHelper()
         dbHelper?.initializeDatabase()
         self.populateDashboard()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
 
     func populateDashboard(){
@@ -164,9 +170,8 @@ class HomeViewController: BaseViewController {
                 imgTopImg.imageURL = URL(string: String(cString: sqlite3_column_text(stmt, 6)))*/
                 MyUtils.load_image(image_url_string: String(cString: sqlite3_column_text(stmt, 6)), view:(imgTopImg))
                 lblScrollingText.text = String(cString: sqlite3_column_text(stmt, 7)).htmlToString
-                UIView.animate(withDuration: 12.0, delay: 1, options: ([.curveLinear, .repeat]), animations: {() -> Void in
-                    self.lblScrollingText.center = CGPoint(x: 0 - self.lblScrollingText.bounds.size.width / 2, y: self.lblScrollingText.center.y)
-                }, completion:  { _ in })
+                lblScrollingText.animationCurve = .easeInOut
+                lblScrollingText.fadeLength = 10.0
             }else{
                 
             }

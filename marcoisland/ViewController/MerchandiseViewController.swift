@@ -18,6 +18,10 @@ class MerchandiseViewController: UIViewController,UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         self.window = UIWindow(frame: UIScreen.main.bounds)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadingView = MyUtils.customLoader(self.window)
         tableViewProduct?.isHidden=true
         tableViewProduct?.separatorColor=UIColor.clear
@@ -109,17 +113,22 @@ class MerchandiseViewController: UIViewController,UITableViewDataSource, UITable
         cell.lblProductName.text = productObj.item_name
         cell.lblProductDesc.text = productObj.item_des
         cell.lblProductPrice.text = productObj.item_price
-        
         cell.imgProduct.contentMode = .scaleAspectFill
         cell.imgProduct.clipsToBounds = true
 //        AsyncImageLoader.shared().cancelLoadingImages(forTarget: cell.imgProduct)
 //        cell.imgProduct.image = UIImage(named: "user")
 //        cell.imgProduct.imageURL = URL(string: productObj.item_image1!)
         MyUtils.load_image(image_url_string: productObj.item_image1!, view:cell.imgProduct)
-        
+        cell.btnBuyNow.tag = Int(productObj.id!)!
+        cell.btnBuyNow.addTarget(self, action: #selector(self.payNow(_:)), for: .touchUpInside)
         return cell as ProductCell
     }
-    
+   
+    @objc func payNow(_ sender: UIButton?) {
+        let viewController = PayNowPageViewController(nibName: "PayNowPageViewController", bundle: nil)
+        viewController.productID = String((sender?.tag)!)
+        self.present(viewController, animated: true, completion: nil)
+    }
     
     
     override func didReceiveMemoryWarning() {

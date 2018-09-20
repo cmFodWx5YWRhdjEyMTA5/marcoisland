@@ -19,12 +19,15 @@ class DiaryViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
          self.window = UIWindow(frame: UIScreen.main.bounds)
         loadingView = MyUtils.customLoader(self.window)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         lblTitle.isHidden = true
         webViewDiary.isHidden = true
         let url = URL (string: "http://mica.h10testing1.info/diary.html")
         let requestObj = URLRequest(url: url!)
         webViewDiary.loadRequest(requestObj)
-        
     }
 
     func webViewDidStartLoad(_ webView: UIWebView) {

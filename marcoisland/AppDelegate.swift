@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        //TODO: - Enter your credentials
+        /*PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "YOUR_CLIENT_ID_FOR_PRODUCTION",
+                                                                PayPalEnvironmentSandbox: "AZz0FFGGBbu9Fe5DAsLzP5AW1Tymuht_2egG4QfwbAy4rJ2vxvrxgY8_jzzBQNqYf-vUu8V1LfLIgnWx"])*/
+        
+        PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "",
+                                                                PayPalEnvironmentSandbox: "AamAMLBqL-xfxNkoMBfdp82j9T20N34f-4yBrMXGmnsHryDWpwtWsakpe0ceh5OATbqJjFuq0C_1L0I6"])
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         //        let vc = Splash()

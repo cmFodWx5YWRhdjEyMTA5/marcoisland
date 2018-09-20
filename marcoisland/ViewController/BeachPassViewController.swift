@@ -29,12 +29,17 @@ class BeachPassViewController: UIViewController {
         super.viewDidLoad()
         self.window = UIWindow(frame: UIScreen.main.bounds)
         loadingView = MyUtils.customLoader(self.window)
+    }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewTopProfile.isHidden = true
         imgQRCode.isHidden = true
         dbHelper = DBHelper()
         self.retrieveData()
     }
-
+    
     func retrieveData(){
         if Connectivity.isConnectedToInternet {
             self.view.addSubview(loadingView!)
@@ -140,8 +145,8 @@ class BeachPassViewController: UIViewController {
                 imgUser.layer.borderColor = MyUtils.colorFromRGBA(fromHex: 0xfd010c, alpha: 1).cgColor
             }
              MyUtils.load_image(image_url_string: String(cString: sqlite3_column_text(stmt, 4)), view:(imgUser))
-            let image = MyUtils.generateQRCode(from: "http://mica.h10testing1.info/member-verification/?mid="+String(cString: sqlite3_column_text(stmt, 1)))
-            imgQRCode.image = image
+            let qr_image = MyUtils.generateQRCode(from: "http://mica.h10testing1.info/member-verification/?mid="+String(cString: sqlite3_column_text(stmt, 1)))
+            imgQRCode.image = qr_image
         }
         
         if checkInternet == 0 {

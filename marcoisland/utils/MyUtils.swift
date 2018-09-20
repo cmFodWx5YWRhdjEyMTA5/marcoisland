@@ -144,7 +144,8 @@ class MyUtils: NSObject {
     
     static func load_image(image_url_string:String, view:UIImageView)
     {
-        let image_url: NSURL = NSURL(string: image_url_string)!
+        let img_encoded_url = image_url_string.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
+        let image_url: NSURL = (NSURL(string: img_encoded_url!))!
         let image_from_url_request: NSURLRequest = NSURLRequest(url: image_url as URL)
         
         NSURLConnection.sendAsynchronousRequest(

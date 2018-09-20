@@ -14,7 +14,8 @@ class SpotDetailsViewController: UIViewController {
     var window: UIWindow?
     @IBOutlet weak var imgBanner: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblDescription: UITextView!
+    @IBOutlet weak var topTitle: UILabel!
+    @IBOutlet weak var lblDescription: UIWebView!
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var backgroundScroll: UIScrollView!
     var dashboardID : String?
@@ -52,8 +53,11 @@ class SpotDetailsViewController: UIViewController {
             imgBanner.clipsToBounds = true
             MyUtils.load_image(image_url_string: String(cString: sqlite3_column_text(stmt, 4)), view:imgBanner!)
             lblTitle.text = String(cString: sqlite3_column_text(stmt, 2))
-            lblDescription.text = String(cString: sqlite3_column_text(stmt, 5)).htmlToString
-            lblDescription.scrollToBotom()
+            topTitle.text = String(cString: sqlite3_column_text(stmt, 2))
+            //lblDescription.attributedText = String(cString: sqlite3_column_text(stmt, 5)).htmlToAttributedString
+            //lblDescription.scrollToBotom()
+            var ff = String(cString: sqlite3_column_text(stmt, 5))
+            lblDescription.loadHTMLString(String(cString: sqlite3_column_text(stmt, 5)), baseURL: nil)
             backgroundScroll.isUserInteractionEnabled = true
             viewContainer.isUserInteractionEnabled = true
         }

@@ -33,6 +33,8 @@
 		1D45D80421410027004383A3 /* check_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D45D80021410027004383A3 /* check_sign.png */; };
 		1D45D80621411474004383A3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D45D80521411474004383A3 /* GradientView.swift */; };
 		1D4775A521392D0E00365F06 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4775A421392D0E00365F06 /* BaseViewController.swift */; };
+		1D598B1F2148FC05007C89C8 /* PayNowPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D598B1D2148FC05007C89C8 /* PayNowPageViewController.swift */; };
+		1D598B202148FC05007C89C8 /* PayNowPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D598B1E2148FC05007C89C8 /* PayNowPageViewController.xib */; };
 		1D6C6E34210EEC4600652369 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C6E33210EEC4600652369 /* AppDelegate.swift */; };
 		1D6C6E36210EEC4600652369 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C6E35210EEC4600652369 /* TabbarController.swift */; };
 		1D6C6E39210EEC4600652369 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C6E37210EEC4600652369 /* Main.storyboard */; };
@@ -98,6 +100,8 @@
 		1D45D80021410027004383A3 /* check_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_sign.png; sourceTree = "<group>"; };
 		1D45D80521411474004383A3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		1D4775A421392D0E00365F06 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1D598B1D2148FC05007C89C8 /* PayNowPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayNowPageViewController.swift; sourceTree = "<group>"; };
+		1D598B1E2148FC05007C89C8 /* PayNowPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayNowPageViewController.xib; sourceTree = "<group>"; };
 		1D6C6E30210EEC4600652369 /* Marco Island.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marco Island.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6C6E33210EEC4600652369 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D6C6E35210EEC4600652369 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -281,6 +285,7 @@
 				1D9D2F01211323A600867DB1 /* DashboardItem.xib */,
 				1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */,
 				1D219AD82126D8FF0078B9F3 /* MerchandiseLIst.xib */,
+				1D7ADE23213ED10C00061AC8 /* marcoisland-Bridging-Header.h */,
 				1D3D2702214284C90017DA9C /* CustomTapGesture.swift */,
 			);
 			path = marcoisland;
@@ -291,7 +296,6 @@
 			children = (
 				1D7ADE24213ED10F00061AC8 /* AsyncImageView.h */,
 				1D7ADE25213ED10F00061AC8 /* AsyncImageView.m */,
-				1D7ADE23213ED10C00061AC8 /* marcoisland-Bridging-Header.h */,
 			);
 			path = AsyncImageView;
 			sourceTree = "<group>";
@@ -311,6 +315,8 @@
 				1D79FB77213FE5BD00AB9BE7 /* ProductCell.swift */,
 				1D3D26FE214250D30017DA9C /* SpotDetailsViewController.swift */,
 				1D3D26FF214250D30017DA9C /* SpotDetailsViewController.xib */,
+				1D598B1D2148FC05007C89C8 /* PayNowPageViewController.swift */,
+				1D598B1E2148FC05007C89C8 /* PayNowPageViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -426,6 +432,7 @@
 				1D36BACC211092410024FB89 /* background.png in Resources */,
 				DCD29F70213F0784008FAC63 /* qr_code.png in Resources */,
 				DCD29F73213F0784008FAC63 /* user_active_border.png in Resources */,
+				1D598B202148FC05007C89C8 /* PayNowPageViewController.xib in Resources */,
 				1D6C6E3B210EEC4800652369 /* Assets.xcassets in Resources */,
 				1D7ADE1D213EB59B00061AC8 /* marco_island_bg.png in Resources */,
 				DCD29F6D213F0784008FAC63 /* right_arrow.png in Resources */,
@@ -465,11 +472,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-marcoisland/Pods-marcoisland-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -507,6 +516,7 @@
 				1D45D80621411474004383A3 /* GradientView.swift in Sources */,
 				1D79FB79213FE5BD00AB9BE7 /* ProductCell.swift in Sources */,
 				1DAB672021468EBA005AF28C /* DBHelper.swift in Sources */,
+				1D598B1F2148FC05007C89C8 /* PayNowPageViewController.swift in Sources */,
 				1D6C6E36210EEC4600652369 /* TabbarController.swift in Sources */,
 				1D1DE0362139897B003AAFAC /* RestcallManager.swift in Sources */,
 				1D79FB76213FCC4F00AB9BE7 /* ProductMaster.swift in Sources */,
@@ -688,7 +698,7 @@
 				PRODUCT_NAME = "Marco Island";
 				PROVISIONING_PROFILE = "c127ee8f-d183-4297-8bd8-481d8526ee09";
 				PROVISIONING_PROFILE_SPECIFIER = DevProvisioningProfileMarcoIsland;
-				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/AsyncImageView/marcoisland-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/marcoisland-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -714,7 +724,7 @@
 				PRODUCT_NAME = "Marco Island";
 				PROVISIONING_PROFILE = "c127ee8f-d183-4297-8bd8-481d8526ee09";
 				PROVISIONING_PROFILE_SPECIFIER = DevProvisioningProfileMarcoIsland;
-				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/AsyncImageView/marcoisland-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/marcoisland-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -141,10 +141,12 @@ class ActivationScreen: BaseViewController,UITextFieldDelegate {
                             }
                         }
                         else if webResponse != nil && (webResponse?.StatusCode != "0") && webResponse?.Data != nil {
+                            self.loadingView?.removeFromSuperview()
                             self.showAlertView(title: "Oops!!!", msg: (webResponse?.Data)!, controller: self, okClicked: {
                             })
                         }
                         else{
+                            self.loadingView?.removeFromSuperview()
                             self.showAlertView(title: "Oops!!!", msg: "We are having an issue connecting to server. Please try again after some time.", controller: self, okClicked: {
                             })
                         }
