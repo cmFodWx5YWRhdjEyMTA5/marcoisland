@@ -13,7 +13,7 @@ class RestcallManager: NSObject {
     static let sharedInstance = RestcallManager()
     
     func getBaseUrl() -> String {
-        return "http://mica.h10testing1.info/wp-api/"
+        return "http://mica2.wpengine.com/wp-api/"
     }
     
     //pragma mark restcall Methods

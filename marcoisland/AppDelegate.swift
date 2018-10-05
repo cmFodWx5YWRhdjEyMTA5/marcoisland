@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import UserNotifications
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate  {
 
     var window: UIWindow?
     var initialViewController :UIViewController?
@@ -20,10 +22,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /*PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "YOUR_CLIENT_ID_FOR_PRODUCTION",
                                                                 PayPalEnvironmentSandbox: "AZz0FFGGBbu9Fe5DAsLzP5AW1Tymuht_2egG4QfwbAy4rJ2vxvrxgY8_jzzBQNqYf-vUu8V1LfLIgnWx"])*/
         
-        PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "",
-                                                                PayPalEnvironmentSandbox: "AamAMLBqL-xfxNkoMBfdp82j9T20N34f-4yBrMXGmnsHryDWpwtWsakpe0ceh5OATbqJjFuq0C_1L0I6"])
+        /*PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "AeZx_PZFoz8nVmMrih7mhclYQksPP6xHKbyGkM0Y7uAAhwhwZ_jXpakx_MwoIb60BIX5nqVEocOGJMWN",
+                                                                PayPalEnvironmentSandbox: "AamAMLBqL-xfxNkoMBfdp82j9T20N34f-4yBrMXGmnsHryDWpwtWsakpe0ceh5OATbqJjFuq0C_1L0I6"])*/
+        
+        PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "AeZx_PZFoz8nVmMrih7mhclYQksPP6xHKbyGkM0Y7uAAhwhwZ_jXpakx_MwoIb60BIX5nqVEocOGJMWN",
+        PayPalEnvironmentSandbox: ""])
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in
+                // Enable or disable features based on authorization.
+            }
+        }
+        UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
+        UIApplication.shared.registerForRemoteNotifications()
         
         //        let vc = Splash()
         //        let navigationController = UINavigationController(rootViewController: vc)
@@ -36,7 +50,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         return true
     }
+    
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        GlobalVariable.setDeviceToken(message: token)
+        print(token)
+    }
+    
+    //Called if unable to register for APNS.
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("APNs registration failed: \(error)")
+    }
 
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("Recived: \(userInfo)")
+        //Parsing userinfo:
+        if let info = userInfo["aps"] as? Dictionary<String, AnyObject>
+        {
+            let alertMsg = info["alert"] as! String
+            let alertController = UIAlertController(title: "recieved", message: alertMsg, preferredStyle: .alert)
+            let actionOk = UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction) in
+                print("You've pressed Ok");
+            }
+            alertController.addAction(actionOk)
+            window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -58,6 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
 
 
 }

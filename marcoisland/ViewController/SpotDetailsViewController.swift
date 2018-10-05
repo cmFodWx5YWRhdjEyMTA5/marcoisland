@@ -56,7 +56,6 @@ class SpotDetailsViewController: UIViewController {
             topTitle.text = String(cString: sqlite3_column_text(stmt, 2))
             //lblDescription.attributedText = String(cString: sqlite3_column_text(stmt, 5)).htmlToAttributedString
             //lblDescription.scrollToBotom()
-            var ff = String(cString: sqlite3_column_text(stmt, 5))
             lblDescription.loadHTMLString(String(cString: sqlite3_column_text(stmt, 5)), baseURL: nil)
             backgroundScroll.isUserInteractionEnabled = true
             viewContainer.isUserInteractionEnabled = true

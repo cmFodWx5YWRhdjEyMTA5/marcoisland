@@ -11,7 +11,7 @@ import Alamofire
 
 class PayNowPageViewController: UIViewController, PayPalPaymentDelegate {
 
-    var environment:String = PayPalEnvironmentSandbox {
+    var environment:String = PayPalEnvironmentProduction {
         willSet(newEnvironment) {
             if (newEnvironment != environment) {
                 PayPalMobile.preconnect(withEnvironment: newEnvironment)
@@ -34,6 +34,13 @@ class PayNowPageViewController: UIViewController, PayPalPaymentDelegate {
     @IBOutlet weak var btnBuyNow: UIButton!
     var productID : String?
     var prodObj : ProductMaster?
+    
+    var orderID : String?
+    var paypal_state : String?
+    var paypal_payment_id : String?
+    var paypal_payment_amount : String?
+    var currency_code : String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,14 +77,17 @@ class PayNowPageViewController: UIViewController, PayPalPaymentDelegate {
     // MARK: Single Payment
     @IBAction func buyProductAction(_ sender: AnyObject) {
         
-        /*if Connectivity.isConnectedToInternet {
+        if Connectivity.isConnectedToInternet {
             self.view.addSubview(loadingView!)
             let baseURL :String = RestcallManager.sharedInstance.getBaseUrl()
 //            let strURL : String = baseURL + "orderPlacing?member_id="+MyUtils.getUserDefault(key: "memberID")
 //            +"&item_id="+productID+"&parent_child=P&purchase_qty=1&price_per_unit="+\(prodObj?.item_price)!+"&total_amt = "+
 //            (prodObj?.item_price)!
             
-            let strURL : String = baseURL + "orderPlacing?member_id="+MyUtils.getUserDefault(key: "memberID")+"&item_id="+productID!+"&parent_child=P&purchase_qty=1&price_per_unit="+prodObj?.item_price+"&total_amt="+prodObj?.item_price
+            var strURL : String = baseURL + "orderPlacing?member_id="+MyUtils.getUserDefault(key: "memberID")+"&item_id="+productID!
+           strURL = strURL + "&parent_child=P&purchase_qty=1&price_per_unit="
+            strURL = strURL + (prodObj?.item_price)!+"&total_amt="+(prodObj?.item_price)!
+           
             Alamofire.request(strURL)
                 .responseJSON { response in
                     
@@ -97,6 +107,7 @@ class PayNowPageViewController: UIViewController, PayPalPaymentDelegate {
                     var webResponse: WebServiceResponse? = nil
                     webResponse = WebServiceResponse().initWithJsonData(jsonData: json) as? WebServiceResponse
                     if webResponse != nil && (webResponse?.StatusCode == "0") && webResponse?.Data != nil {
+                        self.orderID = webResponse?.Data
                         self.callPaypalService()
                     }
                     else if webResponse != nil && (webResponse?.StatusCode != "0") && webResponse?.Data != nil {
@@ -112,9 +123,9 @@ class PayNowPageViewController: UIViewController, PayPalPaymentDelegate {
         else{
             MyUtils.sharedInstance.showAlertViewDialog(title: "Alert!", msg: "No Internet connection.", controller: self, okClicked: {
             })
-        }*/
+        }
         
-        callPaypalService()
+        //callPaypalService()
     }
     
     
@@ -127,8 +138,8 @@ class PayNowPageViewController: UIViewController, PayPalPaymentDelegate {
         let subtotal = PayPalItem.totalPrice(forItems: items)
         
         // Optional: include payment details
-        let shipping = NSDecimalNumber(string: "5.99")
-        let tax = NSDecimalNumber(string: "2.50")
+        let shipping = NSDecimalNumber(string: "0.00")
+        let tax = NSDecimalNumber(string: "0.00")
         let paymentDetails = PayPalPaymentDetails(subtotal: subtotal, withShipping: shipping, withTax: tax)
         
         let total = subtotal.adding(shipping).adding(tax)
@@ -154,6 +165,14 @@ class PayNowPageViewController: UIViewController, PayPalPaymentDelegate {
         resultText = ""
         //successView.isHidden = true
         paymentViewController.dismiss(animated: true, completion: nil)
+        self.loadingView?.removeFromSuperview()
+        let alertController = UIAlertController(title: "Failed!!!", message: "Payment has been cancelled", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in
+            print("You've pressed default");
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(action1)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func payPalPaymentViewController(_ paymentViewController: PayPalPaymentViewController, didComplete completedPayment: PayPalPayment) {
@@ -170,26 +189,79 @@ class PayNowPageViewController: UIViewController, PayPalPaymentDelegate {
         print("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
         self.resultText = completedPayment.description
         
-        /*var paypal_payment_amount = completedPayment.amount
-        var currency_code = completedPayment.currencyCode
+        paypal_payment_amount = String(describing: completedPayment.amount)
+        currency_code = completedPayment.currencyCode
         var paymentResultDict = completedPayment.confirmation
-        var response_type = paymentResultDict["response_type"] as? String
-        var responseObj = paymentResultDict["response"] as! NSObject?
-        var paypalPaymentID = responseObj?.value(forKey: "id") as? String
-        var paypal_state = responseObj?.value(forKey: "state") as? String*/
+        let response_type = paymentResultDict["response_type"] as? String
+        let responseObj = paymentResultDict["response"] as! NSObject?
+        paypal_payment_id = responseObj?.value(forKey: "id") as? String
+        paypal_state = responseObj?.value(forKey: "state") as? String
         
-        let alertController = UIAlertController(title: "Success!!!", message: "Payment successful", preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in
-            print("You've pressed default");
-            self.dismiss(animated: true, completion: nil)
+        if response_type == "payment" &&  paypal_state == "approved" {
+            OrderConfirmation()
         }
-        alertController.addAction(action1)
-        self.present(alertController, animated: true, completion: nil)
     }
+    
+    
+    func OrderConfirmation(){
+        if Connectivity.isConnectedToInternet {
+            self.view.addSubview(loadingView!)
+            let baseURL :String = RestcallManager.sharedInstance.getBaseUrl()
+            
+            var strURL : String = baseURL + "orderUpdating?order_id="+orderID!+"&payment_id="+paypal_payment_id!
+            strURL = strURL + "&pay_success="+paypal_state!
+            
+            Alamofire.request(strURL)
+                .responseJSON { response in
+                    
+                    guard response.result.error == nil else {
+                        print(response.result.error!)
+                        return
+                    }
+                    
+                    guard let json = response.result.value as? [String: Any] else {
+                        print("didn't get todo object as JSON from API")
+                        if let error = response.result.error {
+                            print("Error: \(error)")
+                        }
+                        return
+                    }
+                    
+                    var webResponse: WebServiceResponse? = nil
+                    webResponse = WebServiceResponse().initWithJsonData(jsonData: json) as? WebServiceResponse
+                    if webResponse != nil && (webResponse?.StatusCode == "0") && webResponse?.Data != nil {
+                        self.loadingView?.removeFromSuperview()
+                        let alertController = UIAlertController(title: "Success!!!", message: "Payment successful", preferredStyle: .alert)
+                        let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in
+                            print("You've pressed default");
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                        alertController.addAction(action1)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    else if webResponse != nil && (webResponse?.StatusCode != "0") && webResponse?.Data != nil {
+                        self.loadingView?.removeFromSuperview()
+                        MyUtils.sharedInstance.showAlertViewDialog(title: "Oops!!!", msg: (webResponse?.Data)!, controller: self, okClicked: {
+                        })
+                    }
+                    else{
+                        self.loadingView?.removeFromSuperview()
+                        MyUtils.sharedInstance.showAlertViewDialog(title: "Oops!!!", msg: "We are having an issue connecting to server. Please try again after some time.", controller: self, okClicked: {
+                        })
+                    }
+            }
+        }
+        else{
+            MyUtils.sharedInstance.showAlertViewDialog(title: "Alert!", msg: "No Internet connection.", controller: self, okClicked: {
+            })
+        }
+    }
+    
     
     @IBAction func btnBack(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

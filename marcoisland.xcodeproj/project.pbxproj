@@ -54,6 +54,8 @@
 		1D7ADE1F213EBF1900061AC8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7ADE1E213EBF1900061AC8 /* HomeViewController.swift */; };
 		1D7ADE21213EC7F600061AC8 /* DashboardMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7ADE20213EC7F500061AC8 /* DashboardMaster.swift */; };
 		1D7ADE26213ED11000061AC8 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7ADE25213ED10F00061AC8 /* AsyncImageView.m */; };
+		1D86015321673E5F00E052DF /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D86015221673E5F00E052DF /* UserNotifications.framework */; };
+		1D8601572167C64300E052DF /* MarqueeLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8601562167C64300E052DF /* MarqueeLabel.framework */; };
 		1D9D2F02211323A600867DB1 /* DashboardItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F01211323A600867DB1 /* DashboardItem.xib */; };
 		1D9D2F04211325F200867DB1 /* beach_opening_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F03211325F200867DB1 /* beach_opening_bg.png */; };
 		1D9D2F0621132DAF00867DB1 /* LoginPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */; };
@@ -63,7 +65,6 @@
 		1D9F8CBF213D4DD000E10DB6 /* WebServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F8CBE213D4DCF00E10DB6 /* WebServiceResponse.swift */; };
 		1D9F8CC2213D6F0400E10DB6 /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F8CC1213D6F0400E10DB6 /* GlobalVariable.swift */; };
 		1DAB672021468EBA005AF28C /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAB671F21468EBA005AF28C /* DBHelper.swift */; };
-		D213691B95C3F7C4A7B13C92 /* Pods_marcoisland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB96681F7C0320529C19BDD5 /* Pods_marcoisland.framework */; };
 		DCD29F65213F0548008FAC63 /* BeachPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD29F64213F0548008FAC63 /* BeachPassViewController.swift */; };
 		DCD29F6D213F0784008FAC63 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DCD29F66213F0780008FAC63 /* right_arrow.png */; };
 		DCD29F6E213F0784008FAC63 /* no_image.png in Resources */ = {isa = PBXBuildFile; fileRef = DCD29F67213F0780008FAC63 /* no_image.png */; };
@@ -125,6 +126,9 @@
 		1D7ADE23213ED10C00061AC8 /* marcoisland-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "marcoisland-Bridging-Header.h"; sourceTree = "<group>"; };
 		1D7ADE24213ED10F00061AC8 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		1D7ADE25213ED10F00061AC8 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		1D86015221673E5F00E052DF /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		1D86015521676C1E00E052DF /* Marco Island.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Marco Island.entitlements"; sourceTree = "<group>"; };
+		1D8601562167C64300E052DF /* MarqueeLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarqueeLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D9D2F01211323A600867DB1 /* DashboardItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardItem.xib; sourceTree = "<group>"; };
 		1D9D2F03211325F200867DB1 /* beach_opening_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_opening_bg.png; sourceTree = "<group>"; };
 		1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPopup.xib; sourceTree = "<group>"; };
@@ -151,9 +155,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D8601572167C64300E052DF /* MarqueeLabel.framework in Frameworks */,
+				1D86015321673E5F00E052DF /* UserNotifications.framework in Frameworks */,
 				1D9F8CBA213D43E900E10DB6 /* Alamofire.framework in Frameworks */,
 				1D9F8CB8213D43E600E10DB6 /* AFNetworking.framework in Frameworks */,
-				D213691B95C3F7C4A7B13C92 /* Pods_marcoisland.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +269,7 @@
 		1D6C6E32210EEC4600652369 /* marcoisland */ = {
 			isa = PBXGroup;
 			children = (
+				1D86015521676C1E00E052DF /* Marco Island.entitlements */,
 				1D4063C32147EE6000E8EBA6 /* Extension */,
 				1DAB671C21468D29005AF28C /* SqliteHelper */,
 				1D7ADE27213ED17300061AC8 /* ViewController */,
@@ -348,6 +354,8 @@
 		2E65320977FF1CB58B549D91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D8601562167C64300E052DF /* MarqueeLabel.framework */,
+				1D86015221673E5F00E052DF /* UserNotifications.framework */,
 				1D9F8CB9213D43E900E10DB6 /* Alamofire.framework */,
 				1D9F8CB7213D43E600E10DB6 /* AFNetworking.framework */,
 				DB96681F7C0320529C19BDD5 /* Pods_marcoisland.framework */,
@@ -399,6 +407,11 @@
 					1D6C6E2F210EEC4600652369 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 0930;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -685,10 +698,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "marcoisland/Marco Island.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = RV2775TMCZ;
 				INFOPLIST_FILE = marcoisland/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -696,8 +712,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hang10media.marcoisland;
 				PRODUCT_MODULE_NAME = marcoisland;
 				PRODUCT_NAME = "Marco Island";
-				PROVISIONING_PROFILE = "c127ee8f-d183-4297-8bd8-481d8526ee09";
-				PROVISIONING_PROFILE_SPECIFIER = DevProvisioningProfileMarcoIsland;
+				PROVISIONING_PROFILE = "55cd9b1d-0129-4c1d-a987-2d834af15c59";
+				PROVISIONING_PROFILE_SPECIFIER = LiveProvisioningProfileMarcoIsland;
 				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/marcoisland-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -712,18 +728,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "marcoisland/Marco Island.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = RV2775TMCZ;
 				INFOPLIST_FILE = marcoisland/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hang10media.marcoisland;
 				PRODUCT_NAME = "Marco Island";
-				PROVISIONING_PROFILE = "c127ee8f-d183-4297-8bd8-481d8526ee09";
-				PROVISIONING_PROFILE_SPECIFIER = DevProvisioningProfileMarcoIsland;
+				PROVISIONING_PROFILE = "55cd9b1d-0129-4c1d-a987-2d834af15c59";
+				PROVISIONING_PROFILE_SPECIFIER = LiveProvisioningProfileMarcoIsland;
 				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/marcoisland-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

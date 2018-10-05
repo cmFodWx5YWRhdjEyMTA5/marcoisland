@@ -105,7 +105,7 @@ class ActivationScreen: BaseViewController,UITextFieldDelegate {
                 //let url : String = "http://mica.h10testing1.info/wp-api/discountPageContent"
                 self.view.addSubview(loadingView!)
                 let baseURL :String = RestcallManager.sharedInstance.getBaseUrl()
-                let strURL : String = baseURL + "checkLogin?email_id="+txtEmail.text!+"&activation_code="+txtActivationCode.text!;
+                let strURL : String = baseURL + "checkLogin?email_id="+txtEmail.text!+"&activation_code="+txtActivationCode.text!+"&device_type=iPhone&device_token="+GlobalVariable.getDeviceToken();
                 Alamofire.request(strURL)
                     .responseJSON { response in
                         

@@ -6,7 +6,6 @@
 //  Copyright © 2018 Infologic. All rights reserved.
 //
 
-import UIKit
 
 import UIKit
 

@@ -145,7 +145,8 @@ class BeachPassViewController: UIViewController {
                 imgUser.layer.borderColor = MyUtils.colorFromRGBA(fromHex: 0xfd010c, alpha: 1).cgColor
             }
              MyUtils.load_image(image_url_string: String(cString: sqlite3_column_text(stmt, 4)), view:(imgUser))
-            let qr_image = MyUtils.generateQRCode(from: "http://mica.h10testing1.info/member-verification/?mid="+String(cString: sqlite3_column_text(stmt, 1)))
+            //let qr_image = MyUtils.generateQRCode(from: "http://mica.h10testing1.info/member-verification/?mid="+String(cString: sqlite3_column_text(stmt, 1)))
+            let qr_image = MyUtils.generateQRCode(from:String(cString: sqlite3_column_text(stmt, 5)))
             imgQRCode.image = qr_image
         }
         

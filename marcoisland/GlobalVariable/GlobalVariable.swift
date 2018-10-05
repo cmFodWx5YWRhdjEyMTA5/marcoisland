@@ -10,11 +10,18 @@ import UIKit
 
 class GlobalVariable: NSObject {
     static var globalVariable: String?
+    static var deviceToken: String?
     
     static func setGlobalMessage(message:String) {
         globalVariable = message
     }
     static func getGlobalMessage()->String {
+        return globalVariable!
+    }
+    static func setDeviceToken(message:String) {
+        globalVariable = message
+    }
+    static func getDeviceToken()->String {
         return globalVariable!
     }
 }
