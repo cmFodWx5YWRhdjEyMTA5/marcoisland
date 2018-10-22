@@ -15,36 +15,28 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Alamofire (4.7.3)
-  - CardIO (5.4.1)
   - MarqueeLabel/Swift (3.1.6)
-  - PayPal-iOS-SDK (2.18.1):
-    - PayPal-iOS-SDK/CardIO (= 2.18.1)
-    - PayPal-iOS-SDK/Core (= 2.18.1)
-  - PayPal-iOS-SDK/CardIO (2.18.1):
-    - CardIO (~> 5.4.1)
   - PayPal-iOS-SDK/Core (2.18.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Alamofire (~> 4.7)
   - MarqueeLabel/Swift
-  - PayPal-iOS-SDK
+  - PayPal-iOS-SDK/Core
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - Alamofire
-    - CardIO
     - MarqueeLabel
     - PayPal-iOS-SDK
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   MarqueeLabel: 0c41f08ef5773e29c0f71064a8fa788a2fd8b365
   PayPal-iOS-SDK: 10654cd111e911a9807bddb96fae81aacb8e9915
 
-PODFILE CHECKSUM: e6305352a4451f40f8188d6c0505b3e70347f2bd
+PODFILE CHECKSUM: c304a9ee6fef962b3c5b056fff0f9dcd9523519e
 
 COCOAPODS: 1.5.3

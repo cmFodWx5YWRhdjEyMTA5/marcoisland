@@ -25,7 +25,7 @@ class DiaryViewController: UIViewController, UIWebViewDelegate {
         super.viewWillAppear(animated)
         lblTitle.isHidden = true
         webViewDiary.isHidden = true
-        let url = URL (string: "http://mica.h10testing1.info/diary.html")
+        let url = URL (string: "https://mica2.wpengine.com/diary.html")
         let requestObj = URLRequest(url: url!)
         webViewDiary.loadRequest(requestObj)
     }

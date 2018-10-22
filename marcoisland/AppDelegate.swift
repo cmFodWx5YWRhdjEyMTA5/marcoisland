@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         /*PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "YOUR_CLIENT_ID_FOR_PRODUCTION",
                                                                 PayPalEnvironmentSandbox: "AZz0FFGGBbu9Fe5DAsLzP5AW1Tymuht_2egG4QfwbAy4rJ2vxvrxgY8_jzzBQNqYf-vUu8V1LfLIgnWx"])*/
         
-        /*PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "AeZx_PZFoz8nVmMrih7mhclYQksPP6xHKbyGkM0Y7uAAhwhwZ_jXpakx_MwoIb60BIX5nqVEocOGJMWN",
+        /*PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "",
                                                                 PayPalEnvironmentSandbox: "AamAMLBqL-xfxNkoMBfdp82j9T20N34f-4yBrMXGmnsHryDWpwtWsakpe0ceh5OATbqJjFuq0C_1L0I6"])*/
         
         PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "AeZx_PZFoz8nVmMrih7mhclYQksPP6xHKbyGkM0Y7uAAhwhwZ_jXpakx_MwoIb60BIX5nqVEocOGJMWN",
@@ -55,27 +55,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         GlobalVariable.setDeviceToken(message: token)
-        print(token)
+        //print(token)
     }
     
     //Called if unable to register for APNS.
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("APNs registration failed: \(error)")
+        //print("APNs registration failed: \(error)")
     }
 
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        print("Recived: \(userInfo)")
+        //print("Recived: \(userInfo)")
         //Parsing userinfo:
-        if let info = userInfo["aps"] as? Dictionary<String, AnyObject>
+        /*if let info = userInfo["aps"] as? Dictionary<String, AnyObject>
         {
             let alertMsg = info["alert"] as! String
-            let alertController = UIAlertController(title: "recieved", message: alertMsg, preferredStyle: .alert)
-            let actionOk = UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction) in
+            let alertController = UIAlertController(title: "Message!!!", message: alertMsg, preferredStyle: UIAlertControllerStyle.alert)
+            let actionOk = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
                 print("You've pressed Ok");
             }
             alertController.addAction(actionOk)
-            window?.rootViewController?.present(alertController, animated: true, completion: nil)
+            self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }*/
+        
+        
+        if let info = userInfo["aps"] as? Dictionary<String, AnyObject>
+        {
+            var topWindow: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+            topWindow?.rootViewController = UIViewController()
+            topWindow?.windowLevel = UIWindowLevelAlert + 1
+            let alertMsg = info["alert"] as! String
+            let alert = UIAlertController(title: "Message!!!", message: alertMsg, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "confirm"), style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+            topWindow?.isHidden = true
+            topWindow = nil
+        }))
+        topWindow?.makeKeyAndVisible()
+        topWindow?.rootViewController?.present(alert, animated: true, completion: nil)
         }
     }
     

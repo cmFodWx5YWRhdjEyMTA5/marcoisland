@@ -133,7 +133,7 @@ class MyUtils: NSObject {
         
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 5, y: 5)
+            let transform = CGAffineTransform(scaleX: 10, y: 10)
             
             if let output = filter.outputImage?.transformed(by: transform) {
                 return UIImage(ciImage: output)
@@ -174,5 +174,33 @@ class MyUtils: NSObject {
         
         //       task.resume()
         
+    }
+    
+    
+    /**
+     * Show alert dialog
+     *
+     * @param title Dialog title
+     * @param message Dialog message
+     * @return void
+     */
+    static func showAlert(_ title: String, _ message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        alert.addAction(UIAlertAction(
+            title: "OK",
+            style: UIAlertActionStyle.default,
+            handler: nil
+        ))
+        
+        UIApplication.shared.keyWindow?.rootViewController?.present(
+            alert,
+            animated: true,
+            completion: nil
+        )
     }
 }

@@ -9,6 +9,6 @@ target 'marcoisland' do
   
   pod 'AFNetworking', '~> 3.0'
   pod 'Alamofire', '~> 4.7'
-  pod 'PayPal-iOS-SDK'
+  pod 'PayPal-iOS-SDK/Core'
   pod 'MarqueeLabel/Swift'
 end

@@ -129,20 +129,20 @@ class BeachPassViewController: UIViewController {
             lblValidFrom.text = String(cString: sqlite3_column_text(stmt, 6))
             lblValidTo.text = String(cString: sqlite3_column_text(stmt, 7))
             
-            imgUser.layer.borderWidth = 3
+            imgUser.layer.borderWidth = 5
             imgUser.layer.masksToBounds = false
             imgUser.layer.cornerRadius = imgUser.frame.height/2
             imgUser.clipsToBounds = true
             
             if String(cString: sqlite3_column_text(stmt, 8)) == "n"{
                 lblStatus.text = "Inactive"
-                imgCheckProfile.image = UIImage(named: "close_sign")
-                imgUser.layer.borderColor = MyUtils.colorFromRGBA(fromHex: 0x04b031, alpha: 1).cgColor
+                imgCheckProfile.image = UIImage(named: "ic_close")
+                imgUser.layer.borderColor = MyUtils.colorFromRGBA(fromHex: 0xfd010c, alpha: 1).cgColor
             }
             else{
                 lblStatus.text = "Active"
-                imgCheckProfile.image = UIImage(named: "check_sign")
-                imgUser.layer.borderColor = MyUtils.colorFromRGBA(fromHex: 0xfd010c, alpha: 1).cgColor
+                imgCheckProfile.image = UIImage(named: "ic_check")
+                imgUser.layer.borderColor = MyUtils.colorFromRGBA(fromHex: 0x04b031, alpha: 1).cgColor
             }
              MyUtils.load_image(image_url_string: String(cString: sqlite3_column_text(stmt, 4)), view:(imgUser))
             //let qr_image = MyUtils.generateQRCode(from: "http://mica.h10testing1.info/member-verification/?mid="+String(cString: sqlite3_column_text(stmt, 1)))

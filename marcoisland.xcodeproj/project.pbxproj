@@ -56,6 +56,7 @@
 		1D7ADE26213ED11000061AC8 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7ADE25213ED10F00061AC8 /* AsyncImageView.m */; };
 		1D86015321673E5F00E052DF /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D86015221673E5F00E052DF /* UserNotifications.framework */; };
 		1D8601572167C64300E052DF /* MarqueeLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8601562167C64300E052DF /* MarqueeLabel.framework */; };
+		1D8601592167CF1200E052DF /* Pods_marcoisland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8601582167CF1200E052DF /* Pods_marcoisland.framework */; };
 		1D9D2F02211323A600867DB1 /* DashboardItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F01211323A600867DB1 /* DashboardItem.xib */; };
 		1D9D2F04211325F200867DB1 /* beach_opening_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F03211325F200867DB1 /* beach_opening_bg.png */; };
 		1D9D2F0621132DAF00867DB1 /* LoginPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */; };
@@ -64,6 +65,8 @@
 		1D9F8CBD213D463400E10DB6 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F8CBC213D463400E10DB6 /* Connectivity.swift */; };
 		1D9F8CBF213D4DD000E10DB6 /* WebServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F8CBE213D4DCF00E10DB6 /* WebServiceResponse.swift */; };
 		1D9F8CC2213D6F0400E10DB6 /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F8CC1213D6F0400E10DB6 /* GlobalVariable.swift */; };
+		1DAAEB59217DBDDC00F9A9A2 /* ic_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DAAEB57217DBDDB00F9A9A2 /* ic_close.png */; };
+		1DAAEB5A217DBDDC00F9A9A2 /* ic_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DAAEB58217DBDDC00F9A9A2 /* ic_check.png */; };
 		1DAB672021468EBA005AF28C /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAB671F21468EBA005AF28C /* DBHelper.swift */; };
 		DCD29F65213F0548008FAC63 /* BeachPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD29F64213F0548008FAC63 /* BeachPassViewController.swift */; };
 		DCD29F6D213F0784008FAC63 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DCD29F66213F0780008FAC63 /* right_arrow.png */; };
@@ -129,6 +132,7 @@
 		1D86015221673E5F00E052DF /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		1D86015521676C1E00E052DF /* Marco Island.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Marco Island.entitlements"; sourceTree = "<group>"; };
 		1D8601562167C64300E052DF /* MarqueeLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarqueeLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D8601582167CF1200E052DF /* Pods_marcoisland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_marcoisland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D9D2F01211323A600867DB1 /* DashboardItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardItem.xib; sourceTree = "<group>"; };
 		1D9D2F03211325F200867DB1 /* beach_opening_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_opening_bg.png; sourceTree = "<group>"; };
 		1D9D2F0521132DAF00867DB1 /* LoginPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPopup.xib; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 		1D9F8CBC213D463400E10DB6 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		1D9F8CBE213D4DCF00E10DB6 /* WebServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceResponse.swift; sourceTree = "<group>"; };
 		1D9F8CC1213D6F0400E10DB6 /* GlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
+		1DAAEB57217DBDDB00F9A9A2 /* ic_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_close.png; sourceTree = "<group>"; };
+		1DAAEB58217DBDDC00F9A9A2 /* ic_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_check.png; sourceTree = "<group>"; };
 		1DAB671F21468EBA005AF28C /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		BECB3F46D9A6158CA663E04D /* Pods-marcoisland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marcoisland.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marcoisland/Pods-marcoisland.debug.xcconfig"; sourceTree = "<group>"; };
 		DB96681F7C0320529C19BDD5 /* Pods_marcoisland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_marcoisland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D8601592167CF1200E052DF /* Pods_marcoisland.framework in Frameworks */,
 				1D8601572167C64300E052DF /* MarqueeLabel.framework in Frameworks */,
 				1D86015321673E5F00E052DF /* UserNotifications.framework in Frameworks */,
 				1D9F8CBA213D43E900E10DB6 /* Alamofire.framework in Frameworks */,
@@ -205,6 +212,8 @@
 		1D36BACA21108F1A0024FB89 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1DAAEB58217DBDDC00F9A9A2 /* ic_check.png */,
+				1DAAEB57217DBDDB00F9A9A2 /* ic_close.png */,
 				1D45D80021410027004383A3 /* check_sign.png */,
 				1D45D7FE21410026004383A3 /* close_sign.png */,
 				1D45D7FF21410026004383A3 /* loader_thumb_full.png */,
@@ -354,6 +363,7 @@
 		2E65320977FF1CB58B549D91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D8601582167CF1200E052DF /* Pods_marcoisland.framework */,
 				1D8601562167C64300E052DF /* MarqueeLabel.framework */,
 				1D86015221673E5F00E052DF /* UserNotifications.framework */,
 				1D9F8CB9213D43E900E10DB6 /* Alamofire.framework */,
@@ -448,8 +458,10 @@
 				1D598B202148FC05007C89C8 /* PayNowPageViewController.xib in Resources */,
 				1D6C6E3B210EEC4800652369 /* Assets.xcassets in Resources */,
 				1D7ADE1D213EB59B00061AC8 /* marco_island_bg.png in Resources */,
+				1DAAEB5A217DBDDC00F9A9A2 /* ic_check.png in Resources */,
 				DCD29F6D213F0784008FAC63 /* right_arrow.png in Resources */,
 				1D9D2F0621132DAF00867DB1 /* LoginPopup.xib in Resources */,
+				1DAAEB59217DBDDC00F9A9A2 /* ic_close.png in Resources */,
 				DCD29F6F213F0784008FAC63 /* user_inactive_border.png in Resources */,
 				1D7ADE1C213EB59B00061AC8 /* digital_beach_pass.png in Resources */,
 				1D36BAC921108F100024FB89 /* m_logo.png in Resources */,
@@ -712,8 +724,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hang10media.marcoisland;
 				PRODUCT_MODULE_NAME = marcoisland;
 				PRODUCT_NAME = "Marco Island";
-				PROVISIONING_PROFILE = "55cd9b1d-0129-4c1d-a987-2d834af15c59";
-				PROVISIONING_PROFILE_SPECIFIER = LiveProvisioningProfileMarcoIsland;
+				PROVISIONING_PROFILE = "ea807979-cb70-4814-9115-b7619b5cc892";
+				PROVISIONING_PROFILE_SPECIFIER = betaProvisioningProfileMarcoIsland;
 				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/marcoisland-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -741,8 +753,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hang10media.marcoisland;
 				PRODUCT_NAME = "Marco Island";
-				PROVISIONING_PROFILE = "55cd9b1d-0129-4c1d-a987-2d834af15c59";
-				PROVISIONING_PROFILE_SPECIFIER = LiveProvisioningProfileMarcoIsland;
+				PROVISIONING_PROFILE = "ea807979-cb70-4814-9115-b7619b5cc892";
+				PROVISIONING_PROFILE_SPECIFIER = betaProvisioningProfileMarcoIsland;
 				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/marcoisland-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
