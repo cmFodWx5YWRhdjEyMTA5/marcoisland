@@ -555,7 +555,7 @@
             </objects>
             <point key="canvasLocation" x="-412.5" y="859.85915492957747"/>
         </scene>
-        <!--Diary-->
+        <!--Calendar-->
         <scene sceneID="aJX-wS-tgF">
             <objects>
                 <viewController id="SQa-MR-MaZ" customClass="DiaryViewController" customModule="Marco_Island" customModuleProvider="target" sceneMemberID="viewController">
@@ -581,8 +581,8 @@
                                     <constraint firstItem="uFG-mr-Vs6" firstAttribute="leading" secondItem="bQ4-Zh-S95" secondAttribute="leading" constant="88" id="xFT-I3-gac"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIARY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czp-cN-lH4">
-                                <rect key="frame" x="8" y="92" width="51" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALENDAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czp-cN-lH4">
+                                <rect key="frame" x="8" y="92" width="108" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="G4G-NF-3JT"/>
                                 </constraints>
@@ -600,7 +600,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bQ4-Zh-S95" firstAttribute="trailing" secondItem="5bf-pq-st3" secondAttribute="trailing" id="5y9-mA-DeH"/>
-                            <constraint firstItem="5bf-pq-st3" firstAttribute="trailing" secondItem="Czp-cN-lH4" secondAttribute="trailing" constant="261" id="HJv-8b-OVI"/>
+                            <constraint firstItem="5bf-pq-st3" firstAttribute="trailing" secondItem="Czp-cN-lH4" secondAttribute="trailing" constant="204" id="HJv-8b-OVI"/>
                             <constraint firstItem="5bf-pq-st3" firstAttribute="bottom" secondItem="yVo-Xs-Glc" secondAttribute="bottom" constant="7" id="Mkk-C8-3Cq"/>
                             <constraint firstItem="bQ4-Zh-S95" firstAttribute="leading" secondItem="5bf-pq-st3" secondAttribute="leading" id="W5Y-HQ-xce"/>
                             <constraint firstItem="yVo-Xs-Glc" firstAttribute="leading" secondItem="5bf-pq-st3" secondAttribute="leading" constant="9" id="Xgj-YH-tql"/>
@@ -612,7 +612,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5bf-pq-st3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Diary" image="tab_diary" id="OK8-L1-7lL">
+                    <tabBarItem key="tabBarItem" title="Calendar" image="tab_diary" id="OK8-L1-7lL">
                         <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -623,7 +623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDL-nF-CKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21" y="211"/>
+            <point key="canvasLocation" x="20.625" y="210.21126760563379"/>
         </scene>
         <!--Home-->
         <scene sceneID="9c5-f5-aoJ">

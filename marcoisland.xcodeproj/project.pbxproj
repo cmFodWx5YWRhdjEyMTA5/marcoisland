@@ -724,8 +724,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hang10media.marcoisland;
 				PRODUCT_MODULE_NAME = marcoisland;
 				PRODUCT_NAME = "Marco Island";
-				PROVISIONING_PROFILE = "ea807979-cb70-4814-9115-b7619b5cc892";
-				PROVISIONING_PROFILE_SPECIFIER = betaProvisioningProfileMarcoIsland;
+				PROVISIONING_PROFILE = "55cd9b1d-0129-4c1d-a987-2d834af15c59";
+				PROVISIONING_PROFILE_SPECIFIER = LiveProvisioningProfileMarcoIsland;
 				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/marcoisland-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -753,8 +753,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hang10media.marcoisland;
 				PRODUCT_NAME = "Marco Island";
-				PROVISIONING_PROFILE = "ea807979-cb70-4814-9115-b7619b5cc892";
-				PROVISIONING_PROFILE_SPECIFIER = betaProvisioningProfileMarcoIsland;
+				PROVISIONING_PROFILE = "55cd9b1d-0129-4c1d-a987-2d834af15c59";
+				PROVISIONING_PROFILE_SPECIFIER = LiveProvisioningProfileMarcoIsland;
 				SWIFT_OBJC_BRIDGING_HEADER = "marcoisland/marcoisland-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
